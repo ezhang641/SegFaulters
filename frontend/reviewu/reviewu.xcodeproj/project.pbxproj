@@ -6,24 +6,11 @@
 	objectVersion = 55;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		E58EB498272C46530050B3F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58EB497272C46530050B3F4 /* AppDelegate.swift */; };
-		E58EB49A272C46530050B3F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58EB499272C46530050B3F4 /* SceneDelegate.swift */; };
-		E58EB49C272C46530050B3F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58EB49B272C46530050B3F4 /* ViewController.swift */; };
-		E58EB49F272C46530050B3F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E58EB49D272C46530050B3F4 /* Main.storyboard */; };
-		E58EB4A1272C46560050B3F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E58EB4A0272C46560050B3F4 /* Assets.xcassets */; };
-		E58EB4A4272C46560050B3F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E58EB4A2272C46560050B3F4 /* LaunchScreen.storyboard */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
 		E58EB494272C46530050B3F4 /* reviewu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reviewu.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E58EB497272C46530050B3F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E58EB499272C46530050B3F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E58EB49B272C46530050B3F4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E58EB49E272C46530050B3F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E58EB4A0272C46560050B3F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E58EB4A3272C46560050B3F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E58EB4A5272C46560050B3F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E58EC738272C78480050B3F4 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		E58EC73B272C78480050B3F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E58EC73D272C78480050B3F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +43,20 @@
 		E58EB496272C46530050B3F4 /* reviewu */ = {
 			isa = PBXGroup;
 			children = (
-				E58EB497272C46530050B3F4 /* AppDelegate.swift */,
-				E58EB499272C46530050B3F4 /* SceneDelegate.swift */,
-				E58EB49B272C46530050B3F4 /* ViewController.swift */,
-				E58EB49D272C46530050B3F4 /* Main.storyboard */,
-				E58EB4A0272C46560050B3F4 /* Assets.xcassets */,
-				E58EB4A2272C46560050B3F4 /* LaunchScreen.storyboard */,
-				E58EB4A5272C46560050B3F4 /* Info.plist */,
+				E58EC739272C78480050B3F4 /* Base.lproj */,
+				E58EC738272C78480050B3F4 /* TableViewController.swift */,
 			);
 			path = reviewu;
+			sourceTree = "<group>";
+		};
+		E58EC739272C78480050B3F4 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				E58EC73A272C78480050B3F4 /* LaunchScreen.storyboard */,
+				E58EC73C272C78480050B3F4 /* Main.storyboard */,
+			);
+			name = Base.lproj;
+			path = ../../../../../IOSAddSearchTableViewTutorial/reviewU/Base.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,6 +91,7 @@
 				TargetAttributes = {
 					E58EB493272C46520050B3F4 = {
 						CreatedOnToolsVersion = 13.1;
+						LastSwiftMigration = 1310;
 					};
 				};
 			};
@@ -125,9 +118,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E58EB4A4272C46560050B3F4 /* LaunchScreen.storyboard in Resources */,
-				E58EB4A1272C46560050B3F4 /* Assets.xcassets in Resources */,
-				E58EB49F272C46530050B3F4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,29 +128,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E58EB49C272C46530050B3F4 /* ViewController.swift in Sources */,
-				E58EB498272C46530050B3F4 /* AppDelegate.swift in Sources */,
-				E58EB49A272C46530050B3F4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E58EB49D272C46530050B3F4 /* Main.storyboard */ = {
+		E58EC73A272C78480050B3F4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E58EB49E272C46530050B3F4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E58EB4A2272C46560050B3F4 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E58EB4A3272C46560050B3F4 /* Base */,
+				E58EC73B272C78480050B3F4 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E58EC73C272C78480050B3F4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E58EC73D272C78480050B3F4 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -287,6 +274,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BFY66U9548;
@@ -305,6 +293,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = edu.umich.semples.reviewu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -315,6 +304,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BFY66U9548;

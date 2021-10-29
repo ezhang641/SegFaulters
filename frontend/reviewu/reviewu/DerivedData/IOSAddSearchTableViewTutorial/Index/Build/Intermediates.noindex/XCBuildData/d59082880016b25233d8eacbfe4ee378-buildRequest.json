@@ -1,0 +1,59 @@
+{
+  "_buildCommand2" : {
+    "command" : "prepareForIndexing",
+    "enableIndexBuildArena" : true,
+    "targets" : null
+  },
+  "buildCommand" : "build",
+  "configuredTargets" : [
+    {
+      "guid" : "ae55ac7a473a24643d2d5c6ae2c1055a889b7935d93ab7cf1d1c1a4a086a6f2f"
+    }
+  ],
+  "containerPath" : "/Users/spencersemple/Desktop/IOSAddSearchTableViewTutorial/reviewU.xcodeproj",
+  "continueBuildingAfterErrors" : true,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "indexbuild",
+    "activeArchitecture" : "x86_64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "iphonesimulator",
+      "sdk" : "iphonesimulator15.0",
+      "sdkVariant" : "iphonesimulator",
+      "supportedArchitectures" : [
+        "x86_64"
+      ],
+      "targetArchitecture" : "x86_64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/spencersemple/Desktop/IOSAddSearchTableViewTutorial/DerivedData/IOSAddSearchTableViewTutorial/Index/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/spencersemple/Desktop/IOSAddSearchTableViewTutorial/DerivedData/IOSAddSearchTableViewTutorial/Index/Build/Products",
+      "derivedDataPath" : "/Users/spencersemple/Desktop/IOSAddSearchTableViewTutorial/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/spencersemple/Desktop/IOSAddSearchTableViewTutorial/DerivedData/IOSAddSearchTableViewTutorial/Index/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/spencersemple/Desktop/IOSAddSearchTableViewTutorial/DerivedData/IOSAddSearchTableViewTutorial/Index/PrecompiledHeaders",
+      "pchPath" : "/Users/spencersemple/Desktop/IOSAddSearchTableViewTutorial/DerivedData/IOSAddSearchTableViewTutorial/Index/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ENABLE_PREVIEWS" : "NO",
+          "INDEX_ARENA_INFO_REGULAR_BUILD_PRODUCTS_DIR" : "/Users/spencersemple/Desktop/IOSAddSearchTableViewTutorial/DerivedData/IOSAddSearchTableViewTutorial/Build/Products",
+          "ONLY_ACTIVE_ARCH" : "YES"
+        }
+      }
+    }
+  },
+  "qos" : "utility",
+  "schemeCommand" : "launch",
+  "schemeCommand2" : "launch",
+  "shouldCollectMetrics" : false,
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

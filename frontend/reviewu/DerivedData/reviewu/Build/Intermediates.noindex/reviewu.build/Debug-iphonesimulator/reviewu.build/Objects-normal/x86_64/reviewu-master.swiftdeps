@@ -1,0 +1,8 @@
+version: "Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)"
+options: "7c210285ad91bfaec743ad1cdc75c0a36a39d4994ee93a2203d801d0d6081829"
+build_start_time: [1635531512, 505239009]
+build_end_time: [1635531514, 332446098]
+inputs:
+  "/Users/spencersemple/Desktop/eecs441/SegFaulters/frontend/reviewu/reviewu/AppDelegate.swift": [1635520211, 67651271]
+  "/Users/spencersemple/Desktop/eecs441/SegFaulters/frontend/reviewu/reviewu/SceneDelegate.swift": [1635520211, 87154865]
+  "/Users/spencersemple/Desktop/eecs441/SegFaulters/frontend/reviewu/reviewu/TableTableViewController.swift": [1635531238, 641491413]

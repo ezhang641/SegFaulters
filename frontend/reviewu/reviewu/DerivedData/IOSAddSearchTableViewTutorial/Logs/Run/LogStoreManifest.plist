@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>10</integer>
+	<key>logs</key>
+	<dict>
+		<key>35E01B13-DE84-4CE8-9DBC-35A433D40B59</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>35E01B13-DE84-4CE8-9DBC-35A433D40B59.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>IOSAddSearchTableViewTutorial project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IOSAddSearchTableViewTutorial</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run IOSAddSearchTableViewTutorial</string>
+			<key>timeStartedRecording</key>
+			<real>657225149.95695198</real>
+			<key>timeStoppedRecording</key>
+			<real>657225301.74970198</real>
+			<key>title</key>
+			<string>Run IOSAddSearchTableViewTutorial</string>
+			<key>uniqueIdentifier</key>
+			<string>35E01B13-DE84-4CE8-9DBC-35A433D40B59</string>
+		</dict>
+		<key>87022F21-F632-42A1-9E31-778D5F900A28</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>87022F21-F632-42A1-9E31-778D5F900A28.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>IOSAddSearchTableViewTutorial project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IOSAddSearchTableViewTutorial</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run IOSAddSearchTableViewTutorial</string>
+			<key>timeStartedRecording</key>
+			<real>657225311.59402895</real>
+			<key>timeStoppedRecording</key>
+			<real>657225524.23443198</real>
+			<key>title</key>
+			<string>Run IOSAddSearchTableViewTutorial</string>
+			<key>uniqueIdentifier</key>
+			<string>87022F21-F632-42A1-9E31-778D5F900A28</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
