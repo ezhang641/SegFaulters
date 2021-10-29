@@ -1,0 +1,23 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "DF9EB1F30B3C6667F00D354F0890CACB54F1EC13",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "DF9EB1F30B3C6667F00D354F0890CACB54F1EC13" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "8DA5A405-356D-455F-A6CC-D8BA35B72372",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "DF9EB1F30B3C6667F00D354F0890CACB54F1EC13" : "SegFaulters\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "reviewu",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "frontend\/reviewu\/reviewu.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ezhang641\/SegFaulters.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DF9EB1F30B3C6667F00D354F0890CACB54F1EC13"
+    }
+  ]
+}
