@@ -20,7 +20,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating {
         
         filteredTableData = tableData.filter { (item: Item) -> Bool in
           
-            return (item.name?.contains(searchController.searchBar.text!))!
+            return (item.name?.lowercased().contains(searchController.searchBar.text!.lowercased()))!
         }
         
         self.tableView.reloadData()

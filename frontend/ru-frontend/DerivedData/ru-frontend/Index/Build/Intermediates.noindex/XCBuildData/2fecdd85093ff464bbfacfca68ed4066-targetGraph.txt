@@ -1,3 +1,0 @@
-Target dependency graph (2 targets)
-ru-frontend in ru-frontend, no dependencies
-ru-frontend in ru-frontend, no dependencies

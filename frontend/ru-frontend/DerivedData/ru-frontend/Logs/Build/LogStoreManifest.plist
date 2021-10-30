@@ -6,6 +6,142 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
+		<key>20CC272E-F987-47FF-A3B9-7C4BB7ED165A</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>20CC272E-F987-47FF-A3B9-7C4BB7ED165A.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>ru-frontend project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ru-frontend</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ru-frontend</string>
+			<key>timeStartedRecording</key>
+			<real>657246304.13425195</real>
+			<key>timeStoppedRecording</key>
+			<real>657246321.66797698</real>
+			<key>title</key>
+			<string>Build ru-frontend</string>
+			<key>uniqueIdentifier</key>
+			<string>20CC272E-F987-47FF-A3B9-7C4BB7ED165A</string>
+		</dict>
+		<key>2B98436A-90A8-43F2-B9F7-E1AEEEF7D9A7</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>2B98436A-90A8-43F2-B9F7-E1AEEEF7D9A7.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>ru-frontend project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ru-frontend</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ru-frontend</string>
+			<key>timeStartedRecording</key>
+			<real>657246357.89500797</real>
+			<key>timeStoppedRecording</key>
+			<real>657246359.43038702</real>
+			<key>title</key>
+			<string>Build ru-frontend</string>
+			<key>uniqueIdentifier</key>
+			<string>2B98436A-90A8-43F2-B9F7-E1AEEEF7D9A7</string>
+		</dict>
+		<key>515FCBEA-92E9-4D95-8545-328A180E2853</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>515FCBEA-92E9-4D95-8545-328A180E2853.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>ru-frontend project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ru-frontend</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ru-frontend</string>
+			<key>timeStartedRecording</key>
+			<real>657246385.18615699</real>
+			<key>timeStoppedRecording</key>
+			<real>657246386.58766103</real>
+			<key>title</key>
+			<string>Build ru-frontend</string>
+			<key>uniqueIdentifier</key>
+			<string>515FCBEA-92E9-4D95-8545-328A180E2853</string>
+		</dict>
+		<key>5A168205-6F8F-4EB8-94BB-922F72F4529B</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>5A168205-6F8F-4EB8-94BB-922F72F4529B.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>ru-frontend project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ru-frontend</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ru-frontend</string>
+			<key>timeStartedRecording</key>
+			<real>657246075.08231604</real>
+			<key>timeStoppedRecording</key>
+			<real>657246079.98323703</real>
+			<key>title</key>
+			<string>Build ru-frontend</string>
+			<key>uniqueIdentifier</key>
+			<string>5A168205-6F8F-4EB8-94BB-922F72F4529B</string>
+		</dict>
 		<key>744E164E-C917-4F52-8F56-70FC12ACE967</key>
 		<dict>
 			<key>className</key>
@@ -39,6 +175,40 @@
 			<string>Build ru-frontend</string>
 			<key>uniqueIdentifier</key>
 			<string>744E164E-C917-4F52-8F56-70FC12ACE967</string>
+		</dict>
+		<key>E17858C0-BC67-41B8-833A-462194B8CB23</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>E17858C0-BC67-41B8-833A-462194B8CB23.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>ru-frontend project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ru-frontend</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ru-frontend</string>
+			<key>timeStartedRecording</key>
+			<real>657246239.27546501</real>
+			<key>timeStoppedRecording</key>
+			<real>657246243.86448395</real>
+			<key>title</key>
+			<string>Build ru-frontend</string>
+			<key>uniqueIdentifier</key>
+			<string>E17858C0-BC67-41B8-833A-462194B8CB23</string>
 		</dict>
 	</dict>
 </dict>

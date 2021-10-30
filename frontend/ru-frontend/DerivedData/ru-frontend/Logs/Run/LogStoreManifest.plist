@@ -6,6 +6,40 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
+		<key>3E689618-FEFF-499F-B330-6EE98DC7AAB3</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>3E689618-FEFF-499F-B330-6EE98DC7AAB3.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>ru-frontend project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ru-frontend</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ru-frontend</string>
+			<key>timeStartedRecording</key>
+			<real>657246321.69441199</real>
+			<key>timeStoppedRecording</key>
+			<real>657246357.96040297</real>
+			<key>title</key>
+			<string>Run ru-frontend</string>
+			<key>uniqueIdentifier</key>
+			<string>3E689618-FEFF-499F-B330-6EE98DC7AAB3</string>
+		</dict>
 		<key>A492C271-72E6-45D9-9BC3-FA5C72577355</key>
 		<dict>
 			<key>className</key>
@@ -39,6 +73,40 @@
 			<string>Run ru-frontend</string>
 			<key>uniqueIdentifier</key>
 			<string>A492C271-72E6-45D9-9BC3-FA5C72577355</string>
+		</dict>
+		<key>CD5ED023-FCCF-4D34-9616-41BF0E7D2026</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>CD5ED023-FCCF-4D34-9616-41BF0E7D2026.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>ru-frontend project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ru-frontend</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ru-frontend</string>
+			<key>timeStartedRecording</key>
+			<real>657246359.432356</real>
+			<key>timeStoppedRecording</key>
+			<real>657246385.261024</real>
+			<key>title</key>
+			<string>Run ru-frontend</string>
+			<key>uniqueIdentifier</key>
+			<string>CD5ED023-FCCF-4D34-9616-41BF0E7D2026</string>
 		</dict>
 	</dict>
 </dict>
