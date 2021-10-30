@@ -1,0 +1,65 @@
+{
+  "_buildCommand2" : {
+    "command" : "build",
+    "skipDependencies" : false,
+    "style" : "buildAndRun"
+  },
+  "buildCommand" : "build",
+  "configuredTargets" : [
+    {
+      "guid" : "32c1d55e059e9cfa210462d1ec3dcb3e889b7935d93ab7cf1d1c1a4a086a6f2f"
+    }
+  ],
+  "containerPath" : "/Users/spencersemple/Desktop/ru-frontend/ru-frontend.xcodeproj",
+  "continueBuildingAfterErrors" : false,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "activeArchitecture" : "arm64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "iphoneos",
+      "sdk" : "iphoneos15.0",
+      "sdkVariant" : "iphoneos",
+      "supportedArchitectures" : [
+        "arm64v8",
+        "arm64",
+        "armv8"
+      ],
+      "targetArchitecture" : "arm64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/spencersemple/Desktop/ru-frontend/DerivedData/ru-frontend/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/spencersemple/Desktop/ru-frontend/DerivedData/ru-frontend/Build/Products",
+      "derivedDataPath" : "/Users/spencersemple/Desktop/ru-frontend/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/spencersemple/Desktop/ru-frontend/DerivedData/ru-frontend/Index/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/spencersemple/Desktop/ru-frontend/DerivedData/ru-frontend/Index/PrecompiledHeaders",
+      "pchPath" : "/Users/spencersemple/Desktop/ru-frontend/DerivedData/ru-frontend/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ASSETCATALOG_FILTER_FOR_DEVICE_MODEL" : "iPhone10,3",
+          "ASSETCATALOG_FILTER_FOR_DEVICE_OS_VERSION" : "15.0.2",
+          "BUILD_ACTIVE_RESOURCES_ONLY" : "YES",
+          "ENABLE_PREVIEWS" : "NO",
+          "TARGET_DEVICE_IDENTIFIER" : "3f652b9c01d01c8ecee805ec0cf042b75e1977fc",
+          "TARGET_DEVICE_MODEL" : "iPhone10,3",
+          "TARGET_DEVICE_OS_VERSION" : "15.0.2",
+          "TARGET_DEVICE_PLATFORM_NAME" : "iphoneos"
+        }
+      }
+    }
+  },
+  "schemeCommand" : "launch",
+  "schemeCommand2" : "launch",
+  "shouldCollectMetrics" : false,
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

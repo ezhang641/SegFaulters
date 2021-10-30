@@ -1,7 +1,0 @@
-version: "Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)"
-options: "7c210285ad91bfaec743ad1cdc75c0a36a39d4994ee93a2203d801d0d6081829"
-build_start_time: [1635532337, 535087108]
-build_end_time: [1635532346, 335623025]
-inputs:
-  "/Users/spencersemple/Desktop/IOSAddSearchTableViewTutorial/IOSAddSearchTableViewTutorial/AppDelegate.swift": [1631639840, 0]
-  "/Users/spencersemple/Desktop/IOSAddSearchTableViewTutorial/IOSAddSearchTableViewTutorial/TableViewController.swift": [1631639840, 0]

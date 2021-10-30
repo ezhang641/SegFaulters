@@ -1,0 +1,9 @@
+version: "Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)"
+options: "7c210285ad91bfaec743ad1cdc75c0a36a39d4994ee93a2203d801d0d6081829"
+build_start_time: [1635552528, 764598846]
+build_end_time: [1635552529, 701117038]
+inputs:
+  "/Users/spencersemple/Desktop/ru-frontend/ru-frontend/AppDelegate.swift": [1631639840, 0]
+  "/Users/spencersemple/Desktop/ru-frontend/ru-frontend/DetailedView.swift": [1635550359, 815546989]
+  "/Users/spencersemple/Desktop/ru-frontend/ru-frontend/Item.swift": [1635551628, 732519149]
+  "/Users/spencersemple/Desktop/ru-frontend/ru-frontend/TableViewController.swift": [1635552525, 443048238]

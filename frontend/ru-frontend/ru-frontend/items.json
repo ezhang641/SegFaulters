@@ -1,0 +1,7 @@
+[
+  { "name": "Airpods", "sentiment": "positive", "review1": "they are good", "review2": "very loud", "summary": "good quality, noisy" },
+  { "name": "yeti", "sentiment": "positive", "review1": "keeps water cold", "review2": "very nice", "summary": "hello hello hello" },
+  { "name": "keurig", "sentiment": "negative", "review1": "tester tester", "review2": "tester tester", "summary": "im bored of coming up with relevant summaries" },
+  { "name": "oreos", "sentiment": "negative", "review1": "too creamy", "review2": "nice", "summary": "made me fat" },
+  { "name": "aroon", "sentiment": "positive", "review1": "very good at eecs", "review2": "investment banker tho", "summary": "emoji sunglasses" },
+]

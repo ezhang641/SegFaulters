@@ -1,0 +1,3 @@
+Target dependency graph (2 targets)
+IOSAddSearchTableViewTutorial in ru-frontend, no dependencies
+IOSAddSearchTableViewTutorial in ru-frontend, no dependencies
