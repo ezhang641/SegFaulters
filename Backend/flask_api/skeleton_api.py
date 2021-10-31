@@ -70,7 +70,10 @@ def get_amazon_product_content():
                 total_summary += rev
             ret["name"] = summary
         ret["sentiment"] = sum(sentiments) / len(sentiments)
-        ret["summary"]= generate_summary(total_summary)
+        ret["summary"] = generate_summary(total_summary)
+
+        ret["review1"] = content[ret["name"]][0]
+        ret["review2"] = content[ret["name"]][1]
 
         return jsonify(**ret)
     else:
