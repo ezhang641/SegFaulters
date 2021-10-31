@@ -38,62 +38,66 @@ def searchReviews(review_link):
     return "Error"
 
 
-def main():
-    print("Hello World!")
-    search = 'airpods'
-
+def getProductNames(search):
     data_asin = []
     response = getAmazonSearch(search)
-    print(response)
     soup = BeautifulSoup(response.content, "html.parser")
-    # print(soup)
+
     # Finds all products related to the search query
     for i in soup.findAll("div", {
         'class': "s-result-item s-asin sg-col-0-of-12 sg-col-16-of-20 sg-col s-widget-spacing-small sg-col-12-of-16"}):
         data_asin.append(i['data-asin'])
     print(data_asin)
-    # Finds all the reviews of each product from the search query
-    link = []
+    productNames = {}
     for i in range(len(data_asin)):
+        if i > 2:
+            break
         response = searchAsin(data_asin[i])
         print(response)
         soup = BeautifulSoup(response.content, "html.parser")
+        productNames[soup.find("span", {'id': "productTitle"}).text.strip()] = data_asin[i]
 
-        for j in soup.findAll("a", {'data-hook': "see-all-reviews-link-foot"}):
-            link.append(j['href'])
-            break
-        # print(i)
-    # print(link)
+    return productNames
 
+
+def getProductContent(data_asin):
+    # Get to review page
+    response = searchAsin(data_asin)
+    soup = BeautifulSoup(response.content, "html.parser")
+    j = soup.find("a", {'data-hook': "see-all-reviews-link-foot"})
+    link = j['href']
+
+    # Grab product review content
+    reviews = []
+    productName = ''
     productList = {}
+    # Range dictates number of review pages
+    for k in range(1):
+        response = searchReviews(link + '&pageNumber=' + str(k))
+        soup = BeautifulSoup(response.text, "html.parser")
 
-    for j in range(len(link)):
-        # range number here controls the number of pages per product reviews that is scraped
-        reviews = []
-        productName = ''
-        for k in range(1):
-            response = searchReviews(link[j] + '&pageNumber=' + str(k))
-            soup = BeautifulSoup(response.text, "html.parser")
+        # find product name
+        productName = soup.find("a", {'data-hook': "product-link"}).text
 
-            # find product name
-            productName = soup.find("a", {'data-hook': "product-link"}).text
+        # find reviews
+        for i in soup.findAll("span", {'data-hook': "review-body"}):
+            # Filter review content
+            if len(i.text) > 3 and "The media could not be loaded" not in i.text:
+                reviews.append(i.text.strip())
 
-            # find reviews
-            for i in soup.findAll("span", {'data-hook': "review-body"}):
-                # Filter review content
-                if len(i.text) > 3 and "The media could not be loaded" not in i.text:
-                    reviews.append(i.text.strip())
+    if productName != '':
+        productList[productName.strip()] = reviews
 
-        if productName != '':
-            productList[productName.strip()] = reviews
+    return productList
 
-    #print(productList)
 
-    with open('data.json', 'w') as outfile:
-        json.dump(productList, outfile)
-    # rev = {'reviews': reviews}
-    # review_data = pd.DataFrame.from_dict(rev)
-    # review_data.to_csv('Scraped_Data.csv', index=False)
+def main():
+    search = 'airpods'
+    productName = getProductNames(search)
+    print(productName)
+
+    productList = getProductContent(productName['Apple AirPods Pro'])
+    print(productList)
 
 
 if __name__ == "__main__":
