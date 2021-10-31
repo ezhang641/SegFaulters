@@ -1,20 +1,18 @@
 from flask import Flask, session, request, jsonify
+from Backend.flask_api.scrape import *
 import nltk
-# import ssl
-
-# try:
-#     _create_unverified_https_context = ssl._create_unverified_context
-# except AttributeError:
-#     pass
-# else:
-#     ssl._create_default_https_context = _create_unverified_https_context
-
-# nltk.download('vader_lexicon')
-
+import ssl
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-# from flask_api.summarize_text import generate_summary
-import Backend.flask_api as flask_api
-import Backend
+from Backend.flask_api.summarize_text import *
+
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
+
+nltk.download('vader_lexicon')
 
 analyzer = SentimentIntensityAnalyzer()
 
@@ -40,7 +38,7 @@ def get_product_summary():
         for summary in request.form["summaries"]:
             total_summary += summary
 
-        return jsonify(flask_api.summarize_text.generate_summary(summary))
+        return jsonify(generate_summary(total_summary))
     else:
         return "Cant find form"
 
@@ -50,8 +48,9 @@ def get_product_sentiment():
     if "summaries" in request.form:
         sentiments = []
         summaries = request.form["summaries"]
-        for summary in summaries:
-            sentiments.append(analyzer.polarity_scores(summary)["compound"])
+        # for summary in summaries:
+        sentiments.append(analyzer.polarity_scores(summaries)["compound"])
+        print(sentiments)
         return jsonify(sum(sentiments) / len(sentiments))
     else:
         return "Cant find form"
@@ -61,7 +60,7 @@ def get_product_sentiment():
 @app.route("/amazon/information", methods=["GET"])
 def get_amazon_product_content():
     if "product_asin" in request.form:
-        content = Backend.scrape.getProductContent(request.form["product_asin"])
+        content = getProductContent(request.form["product_asin"])
         return jsonify(content)
     else:
         return "Cant find form"
@@ -69,7 +68,7 @@ def get_amazon_product_content():
 @app.route("/amazon/getnames", methods=["GET"])
 def get_amazon_names():
     if "name" in request.form:
-        names = Backend.scrape.getProductNames(request.form["name"])
+        names = getProductNames(request.form["name"])
         return jsonify(names)
     else:
         return "Cant find form"
