@@ -1,4 +1,5 @@
 import requests
+import json
 import pandas as pd
 from bs4 import BeautifulSoup
 
@@ -59,22 +60,40 @@ def main():
         soup = BeautifulSoup(response.content, "html.parser")
 
         for j in soup.findAll("a", {'data-hook': "see-all-reviews-link-foot"}):
-            print(i)
             link.append(j['href'])
+            break
         # print(i)
     # print(link)
 
-    reviews = []
-    for j in range(len(link)):
-        for k in range(10):
-            response = searchReviews(link[j] + '&pageNumber=' + str(k))
-            soup = BeautifulSoup(response.text, features="html.parser")
-            for i in soup.findAll("span", {'data-hook': "review-body"}):
-                reviews.append(i.text)
+    productList = {}
 
-    rev = {'reviews': reviews}
-    review_data = pd.DataFrame.from_dict(rev)
-    review_data.to_csv('Scraped_Data.csv', index=False)
+    for j in range(len(link)):
+        # range number here controls the number of pages per product reviews that is scraped
+        reviews = []
+        productName = ''
+        for k in range(1):
+            response = searchReviews(link[j] + '&pageNumber=' + str(k))
+            soup = BeautifulSoup(response.text, "html.parser")
+
+            # find product name
+            productName = soup.find("a", {'data-hook': "product-link"}).text
+
+            # find reviews
+            for i in soup.findAll("span", {'data-hook': "review-body"}):
+                # Filter review content
+                if len(i.text) > 3 and "The media could not be loaded" not in i.text:
+                    reviews.append(i.text.strip())
+
+        if productName != '':
+            productList[productName.strip()] = reviews
+
+    #print(productList)
+
+    with open('data.json', 'w') as outfile:
+        json.dump(productList, outfile)
+    # rev = {'reviews': reviews}
+    # review_data = pd.DataFrame.from_dict(rev)
+    # review_data.to_csv('Scraped_Data.csv', index=False)
 
 
 if __name__ == "__main__":
