@@ -4,3 +4,4 @@ Backend/lib/
 Backend/bin/
 Backend/pyvenv.cfg
 Backend/Scraped_Data.csv
+Backend/flask_api/__pycache__
