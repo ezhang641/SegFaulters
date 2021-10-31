@@ -1,4 +1,4 @@
-from flask import Flask, session, request
+from flask import Flask, session, request, jsonify
 import nltk
 # import ssl
 
@@ -13,7 +13,8 @@ import nltk
 
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 # from flask_api.summarize_text import generate_summary
-import flask_api
+import Backend.flask_api as flask_api
+import Backend
 
 analyzer = SentimentIntensityAnalyzer()
 
@@ -39,7 +40,9 @@ def get_product_summary():
         for summary in request.form["summaries"]:
             total_summary += summary
 
-        return flask_api.summarize_text.generate_summary(summary)
+        return jsonify(flask_api.summarize_text.generate_summary(summary))
+    else:
+        return "Cant find form"
 
 
 @app.route("/product/sentiment", methods=["GET"])
@@ -49,14 +52,27 @@ def get_product_sentiment():
         summaries = request.form["summaries"]
         for summary in summaries:
             sentiments.append(analyzer.polarity_scores(summary)["compound"])
-        return sum(sentiments) / len(sentiments)
+        return jsonify(sum(sentiments) / len(sentiments))
+    else:
+        return "Cant find form"
 
 
 ### AMAZON ROUTES ###
 @app.route("/amazon/information", methods=["GET"])
-def get_amazon_reviews():
-    # get reviews from scrape
-    pass
+def get_amazon_product_content():
+    if "product_asin" in request.form:
+        content = Backend.scrape.getProductContent(request.form["product_asin"])
+        return jsonify(content)
+    else:
+        return "Cant find form"
+
+@app.route("/amazon/getnames", methods=["GET"])
+def get_amazon_names():
+    if "name" in request.form:
+        names = Backend.scrape.getProductNames(request.form["name"])
+        return jsonify(names)
+    else:
+        return "Cant find form"
 
 if __name__ == '__main__':
    app.run()
