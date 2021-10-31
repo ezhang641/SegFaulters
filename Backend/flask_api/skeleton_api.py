@@ -48,8 +48,8 @@ def get_product_sentiment():
     if "summaries" in request.form:
         sentiments = []
         summaries = request.form["summaries"]
-        # for summary in summaries:
-        sentiments.append(analyzer.polarity_scores(summaries)["compound"])
+        for summary in summaries:
+            sentiments.append(analyzer.polarity_scores(summary)["compound"])
         print(sentiments)
         return jsonify(sum(sentiments) / len(sentiments))
     else:
