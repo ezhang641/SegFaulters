@@ -31,37 +31,48 @@ def index():
 def get_product_information():
     pass
 
-@app.route("/product/summarize", methods=["GET"])
-def get_product_summary():
-    if "summaries" in request.form:
-        total_summary = ""
-        for summary in request.form["summaries"]:
-            total_summary += summary
+# @app.route("/product/summarize", methods=["GET"])
+# def get_product_summary():
+#     if "summaries" in request.form:
+#         total_summary = ""
+#         for summary in request.form["summaries"]:
+#             total_summary += summary
 
-        return jsonify(generate_summary(total_summary))
-    else:
-        return "Cant find form"
+#         return jsonify(generate_summary(total_summary))
+#     else:
+#         return "Cant find form"
 
 
-@app.route("/product/sentiment", methods=["GET"])
-def get_product_sentiment():
-    if "summaries" in request.form:
-        sentiments = []
-        summaries = request.form["summaries"]
-        for summary in summaries:
-            sentiments.append(analyzer.polarity_scores(summary)["compound"])
-        print(sentiments)
-        return jsonify(sum(sentiments) / len(sentiments))
-    else:
-        return "Cant find form"
+# @app.route("/product/sentiment", methods=["GET"])
+# def get_product_sentiment():
+#     if "summaries" in request.form:
+#         sentiments = []
+#         summaries = request.form["summaries"]
+#         for summary in summaries:
+#             sentiments.append(analyzer.polarity_scores(summary)["compound"])
+#         print(sentiments)
+#         return jsonify(sum(sentiments) / len(sentiments))
+#     else:
+#         return "Cant find form"
 
 
 ### AMAZON ROUTES ###
 @app.route("/amazon/information", methods=["GET"])
 def get_amazon_product_content():
     if "product_asin" in request.form:
+        ret = {}
         content = getProductContent(request.form["product_asin"])
-        return jsonify(content)
+        sentiments = []
+        total_summary = ""
+        for summary in content:
+            for rev in content[summary]:
+                sentiments.append(analyzer.polarity_scores(rev)["compound"])
+                total_summary += rev
+            ret["name"] = summary
+        ret["sentiment"] = sum(sentiments) / len(sentiments)
+        ret["summary"]= generate_summary(total_summary)
+
+        return jsonify(**ret)
     else:
         return "Cant find form"
 
