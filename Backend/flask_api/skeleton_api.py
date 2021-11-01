@@ -5,6 +5,7 @@ import nltk
 import ssl
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from Backend.flask_api.summarize_text import *
+import scipy as sp
 
 try:
     _create_unverified_https_context = ssl._create_unverified_context
@@ -70,7 +71,7 @@ def get_amazon_product_content():
                 sentiments.append(analyzer.polarity_scores(rev)["compound"])
                 total_summary += rev
             ret["name"] = summary
-        ret["sentiment"] = sum(sentiments) / len(sentiments)
+        ret["sentiment"] = str(sum(sentiments) / len(sentiments))
         ret["summary"] = generate_summary(total_summary)
 
         ret["review1"] = content[ret["name"]][0]

@@ -58,7 +58,8 @@ final class ProductStore: ObservableObject {
         
         }
     func getContent(_ completion: ((Bool) -> ())?, asin:String) {
-            
+        var success = false
+        self.products.removeAll()
             guard let apiUrl = URL(string: "http://127.0.0.1:5000/amazon/information") else {
                 print("getContent: Bad URL")
                 return
@@ -71,7 +72,7 @@ final class ProductStore: ObservableObject {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
             URLSession.shared.dataTask(with: request) { data, response, error in
-                var success = false
+                
                 defer { completion?(success)}
                 guard let data = data, error == nil else {
                     print("getContent: NETWORKING ERROR")
@@ -83,14 +84,15 @@ final class ProductStore: ObservableObject {
                     return
                 }
                 
-                guard let jsonObj = try? JSONSerialization.jsonObject(with: data) as? [String:String] else {
+                guard var jsonObj = try? JSONSerialization.jsonObject(with: data) as? [String:String] else {
                     print("getContent: failed JSON deserialization")
                     return
                 }
                 DispatchQueue.main.sync{
                     self.products = [Product]()
+                    var product = Product()
                     for (key, value) in jsonObj {
-                        var product = Product()
+                        
                         if key == "name" {
                             product.name = value
                         }
@@ -101,16 +103,16 @@ final class ProductStore: ObservableObject {
                             product.review2 = value
                         }
                         if key == "sentiment" {
-                            product.sentiment = Float(value)
+                            product.sentiment = value
                         }
                         if key == "summary" {
                             product.summary = value
                         }
-                        self.products.append(product)
                     }
+                    self.products.append(product)
                 }
                 success = true
-                
+                jsonObj = [:]
                 
 
             }.resume()

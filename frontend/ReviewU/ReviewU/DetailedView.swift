@@ -15,14 +15,18 @@ final class DetailedView: UIViewController {
     
     @IBOutlet weak var productName: UILabel!
     
+    //sentiment
+    
     @IBOutlet weak var sentiment: UILabel!
+    //summary
     
     @IBOutlet weak var summary: UILabel!
+    //review1
     
     @IBOutlet weak var review1: UILabel!
-    
+    //review2
+   
     @IBOutlet weak var review2: UILabel!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +35,13 @@ final class DetailedView: UIViewController {
                 if success {
                     let product = ProductStore.shared.products[0]
                     self.productName.text = product.name
-                    if product.sentiment! > 0.0 {
-                        self.sentiment.text = "Positive"
-                    }
-                    else {
-                        self.sentiment.text = "Negative"
-                    }
+//                    if product.sentiment! > 0.0 {
+//                        self.sentiment.text = "Positive"
+//                    }
+//                    else {
+//                        self.sentiment.text = "Negative"
+//                    }
+                    self.sentiment.text = product.sentiment
                     self.summary.text = product.summary
                     self.review1.text = product.review1
                     self.review2.text = product.review2
@@ -68,10 +73,6 @@ final class DetailedView: UIViewController {
     
     
     
-    //    var num: String? {
-//        didSet {
-//            configureView()
-//        }
 //    }
    // var num: String = ""
     

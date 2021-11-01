@@ -16,86 +16,113 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="83g-Dm-OYs">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ItemName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gdd-63-3Ur">
-                                        <rect key="frame" x="90" y="32" width="194" height="52"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="36"/>
-                                        <color key="textColor" systemColor="systemRedColor"/>
-                                        <color key="highlightedColor" systemColor="labelColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fM6-em-gYI">
-                                        <rect key="frame" x="40" y="256" width="343" height="90"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="ArialHebrew" family="Arial Hebrew" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Overall Sentiment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dop-7H-Sss">
-                                        <rect key="frame" x="-13" y="121" width="240" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="sentiment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIk-gx-j6J">
-                                        <rect key="frame" x="40" y="121" width="187" height="124"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="ArialHebrew" family="Arial Hebrew" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="[] Review Summary " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhz-E6-ZQb">
-                                        <rect key="frame" x="0.0" y="227" width="244" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Reviews" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lao-IJ-PFX">
-                                        <rect key="frame" x="15" y="354" width="184" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="review2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqZ-0I-vf7">
-                                        <rect key="frame" x="41" y="452" width="293" height="89"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="ArialHebrew" family="Arial Hebrew" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="review1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEq-yS-wSV">
-                                        <rect key="frame" x="40" y="383" width="293" height="85"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="ArialHebrew" family="Arial Hebrew" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <viewLayoutGuide key="contentLayoutGuide" id="U6J-md-7fw"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="6re-Zf-u3E"/>
-                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="review2" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kV8-Yf-Oha">
+                                <rect key="frame" x="47" y="681" width="293" height="168"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="168" id="MUM-Lg-FhC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialHebrew" family="Arial Hebrew" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sentiment" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iU1-Yg-9dj">
+                                <rect key="frame" x="243" y="189" width="147" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="Zzi-6v-5HK"/>
+                                    <constraint firstAttribute="width" constant="147" id="pVt-Hd-8SO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialHebrew" family="Arial Hebrew" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review Summary " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kTW-yC-hJM">
+                                <rect key="frame" x="47" y="250" width="244" height="12"/>
+                                <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ItemName" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="ksM-7P-8Ia">
+                                <rect key="frame" x="24" y="111" width="366" height="38"/>
+                                <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="33"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <color key="highlightedColor" systemColor="labelColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overall Sentiment" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="kov-zY-HHu">
+                                <rect key="frame" x="47" y="205.5" width="153.5" height="20"/>
+                                <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="review1" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A58-iN-ZLd">
+                                <rect key="frame" x="47" y="519" width="293" height="142"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="142" id="kB6-Z4-mzB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialHebrew" family="Arial Hebrew" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Reviews" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhi-NT-80f">
+                                <rect key="frame" x="47" y="457" width="184" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="p06-aV-yAD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="summary" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="tED-SL-d0D">
+                                <rect key="frame" x="47" y="326" width="343" height="104"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="104" id="AaV-IR-g7m"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialHebrew" family="Arial Hebrew" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wI6-qO-Ahn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ksM-7P-8Ia" firstAttribute="leading" secondItem="wI6-qO-Ahn" secondAttribute="leading" constant="24" id="1LJ-Ns-uHx"/>
+                            <constraint firstItem="wI6-qO-Ahn" firstAttribute="trailing" secondItem="A58-iN-ZLd" secondAttribute="trailing" constant="74" id="3oL-ef-VvQ"/>
+                            <constraint firstItem="A58-iN-ZLd" firstAttribute="leading" secondItem="wI6-qO-Ahn" secondAttribute="leading" constant="47" id="40c-gm-zIf"/>
+                            <constraint firstItem="wI6-qO-Ahn" firstAttribute="trailing" secondItem="tED-SL-d0D" secondAttribute="trailing" constant="24" id="5zL-VN-qba"/>
+                            <constraint firstItem="wI6-qO-Ahn" firstAttribute="trailing" secondItem="kTW-yC-hJM" secondAttribute="trailing" constant="123" id="6HN-To-n0C"/>
+                            <constraint firstItem="wI6-qO-Ahn" firstAttribute="trailing" secondItem="iU1-Yg-9dj" secondAttribute="trailing" constant="24" id="6tY-JV-8WO"/>
+                            <constraint firstItem="rhi-NT-80f" firstAttribute="leading" secondItem="wI6-qO-Ahn" secondAttribute="leading" constant="47" id="KFY-jf-afb"/>
+                            <constraint firstItem="wI6-qO-Ahn" firstAttribute="trailing" secondItem="rhi-NT-80f" secondAttribute="trailing" constant="183" id="RZc-Gc-ngt"/>
+                            <constraint firstItem="wI6-qO-Ahn" firstAttribute="trailing" secondItem="kV8-Yf-Oha" secondAttribute="trailing" constant="74" id="SWe-Cn-8Qt"/>
+                            <constraint firstItem="tED-SL-d0D" firstAttribute="leading" secondItem="wI6-qO-Ahn" secondAttribute="leading" constant="47" id="Sa6-MF-aBN"/>
+                            <constraint firstItem="kTW-yC-hJM" firstAttribute="top" secondItem="kov-zY-HHu" secondAttribute="bottom" constant="24.5" id="URG-zb-0cX"/>
+                            <constraint firstItem="ksM-7P-8Ia" firstAttribute="top" secondItem="wI6-qO-Ahn" secondAttribute="top" constant="23" id="YMg-GA-241"/>
+                            <constraint firstItem="iU1-Yg-9dj" firstAttribute="centerY" secondItem="kov-zY-HHu" secondAttribute="centerY" id="ZJi-50-ggs"/>
+                            <constraint firstItem="kov-zY-HHu" firstAttribute="leading" secondItem="wI6-qO-Ahn" secondAttribute="leading" constant="47" id="cIG-x2-YK4"/>
+                            <constraint firstItem="iU1-Yg-9dj" firstAttribute="leading" secondItem="kov-zY-HHu" secondAttribute="trailing" constant="42.5" id="ccp-uo-fgU"/>
+                            <constraint firstItem="iU1-Yg-9dj" firstAttribute="top" secondItem="rGE-jP-O0P" secondAttribute="top" constant="189" id="cqj-Mb-hFP"/>
+                            <constraint firstItem="kV8-Yf-Oha" firstAttribute="leading" secondItem="wI6-qO-Ahn" secondAttribute="leading" constant="47" id="dFc-bd-cKE"/>
+                            <constraint firstItem="A58-iN-ZLd" firstAttribute="top" secondItem="rhi-NT-80f" secondAttribute="bottom" constant="41" id="fGX-g0-97c"/>
+                            <constraint firstItem="kTW-yC-hJM" firstAttribute="top" secondItem="iU1-Yg-9dj" secondAttribute="bottom" constant="8" id="gAB-Gn-x8a"/>
+                            <constraint firstItem="kV8-Yf-Oha" firstAttribute="top" secondItem="A58-iN-ZLd" secondAttribute="bottom" constant="20" id="jfk-5o-DvF"/>
+                            <constraint firstItem="wI6-qO-Ahn" firstAttribute="bottom" secondItem="kV8-Yf-Oha" secondAttribute="bottom" constant="13" id="kj9-eP-FIx"/>
+                            <constraint firstItem="wI6-qO-Ahn" firstAttribute="trailing" secondItem="ksM-7P-8Ia" secondAttribute="trailing" constant="24" id="qNF-LY-1Uo"/>
+                            <constraint firstItem="kov-zY-HHu" firstAttribute="top" secondItem="ksM-7P-8Ia" secondAttribute="bottom" constant="56.5" id="vJO-yp-YUf"/>
+                            <constraint firstItem="rhi-NT-80f" firstAttribute="top" secondItem="tED-SL-d0D" secondAttribute="bottom" constant="27" id="w1q-pb-3Ej"/>
+                            <constraint firstItem="kTW-yC-hJM" firstAttribute="leading" secondItem="wI6-qO-Ahn" secondAttribute="leading" constant="47" id="w96-xh-7W5"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gjE-BG-tP6"/>
                     <connections>
-                        <outlet property="productName" destination="Gdd-63-3Ur" id="a1d-mD-sbS"/>
-                        <outlet property="review1" destination="OEq-yS-wSV" id="bU5-3b-XkH"/>
-                        <outlet property="review2" destination="yqZ-0I-vf7" id="8Nk-Lg-TnD"/>
-                        <outlet property="sentiment" destination="nIk-gx-j6J" id="gFA-X0-l9I"/>
-                        <outlet property="summary" destination="fM6-em-gYI" id="ir2-oc-O85"/>
+                        <outlet property="productName" destination="ksM-7P-8Ia" id="1L8-v1-TdQ"/>
+                        <outlet property="review1" destination="A58-iN-ZLd" id="I2k-tM-ciS"/>
+                        <outlet property="review2" destination="kV8-Yf-Oha" id="T7h-8Y-Imp"/>
+                        <outlet property="sentiment" destination="iU1-Yg-9dj" id="mML-Bh-gt8"/>
+                        <outlet property="summary" destination="tED-SL-d0D" id="HWR-RB-HDd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0dl-F0-iJt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042" y="107"/>
+            <point key="canvasLocation" x="1039.1304347826087" y="106.47321428571428"/>
         </scene>
         <!--ReviewU-->
         <scene sceneID="lDr-dL-8mG">

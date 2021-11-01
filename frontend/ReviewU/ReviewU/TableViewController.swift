@@ -108,6 +108,8 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
         
       //detailViewController.candy = candy
         detailViewController.asin = asin
+        nameObj.removeAll()
+        names.removeAll()
     }
     
 }

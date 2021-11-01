@@ -13,5 +13,5 @@ struct Product {
     var summary: String?
     var review1: String?
     var review2: String?
-    var sentiment: Float?
+    var sentiment: String?
 }

@@ -3,6 +3,7 @@ from nltk.corpus import stopwords
 from nltk.cluster.util import cosine_distance
 import numpy as np
 import networkx as nx
+import scipy as sp
 
 
 def read_article(file_name):
@@ -58,6 +59,7 @@ def build_similarity_matrix(sentences, stop_words):
 
 
 def generate_summary(file_name, top_n=5):
+    
     nltk.download("stopwords")
     stop_words = stopwords.words('english')
     summarize_text = []
@@ -70,7 +72,7 @@ def generate_summary(file_name, top_n=5):
 
     # Step 3 - Rank sentences in similarity martix
     sentence_similarity_graph = nx.from_numpy_array(sentence_similarity_martix)
-    scores = nx.pagerank(sentence_similarity_graph)
+    scores = nx.pagerank(sentence_similarity_graph, max_iter=1000000000)
 
     # Step 4 - Sort the rank and pick top sentences
     ranked_sentence = sorted(((scores[i], s) for i, s in enumerate(sentences)), reverse=True)
