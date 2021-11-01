@@ -35,13 +35,13 @@ final class DetailedView: UIViewController {
                 if success {
                     let product = ProductStore.shared.products[0]
                     self.productName.text = product.name
-//                    if product.sentiment! > 0.0 {
-//                        self.sentiment.text = "Positive"
-//                    }
-//                    else {
-//                        self.sentiment.text = "Negative"
-//                    }
-                    self.sentiment.text = product.sentiment
+                    if Double(product.sentiment!)! > 0.0 {
+                        self.sentiment.text = "Positive"
+                    }
+                    else {
+                        self.sentiment.text = "Negative"
+                    }
+//                    self.sentiment.text = product.sentiment
                     self.summary.text = product.summary
                     self.review1.text = product.review1
                     self.review2.text = product.review2
