@@ -1,4 +1,5 @@
 from flask import Flask, session, request, jsonify
+import Backend
 from Backend.flask_api.scrape import *
 import nltk
 import ssl
@@ -57,11 +58,11 @@ def get_product_information():
 
 
 ### AMAZON ROUTES ###
-@app.route("/amazon/information", methods=["GET"])
+@app.route("/amazon/information", methods=["POST"])
 def get_amazon_product_content():
-    if "product_asin" in request.form:
+    if "product_asin" in request.json:
         ret = {}
-        content = getProductContent(request.form["product_asin"])
+        content = getProductContent(request.json["product_asin"])
         sentiments = []
         total_summary = ""
         for summary in content:
@@ -79,10 +80,11 @@ def get_amazon_product_content():
     else:
         return "Cant find form"
 
-@app.route("/amazon/getnames", methods=["GET"])
+@app.route("/amazon/getnames", methods=["POST"])
 def get_amazon_names():
-    if "name" in request.form:
-        names = getProductNames(request.form["name"])
+    print(request.data)
+    if "name" in request.json:
+        names = getProductNames(request.json["name"])
         return jsonify(names)
     else:
         return "Cant find form"
