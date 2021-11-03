@@ -47,6 +47,13 @@ def getProductNames(search):
     for i in soup.findAll("div", {
         'class': "s-result-item s-asin sg-col-0-of-12 sg-col-16-of-20 sg-col s-widget-spacing-small sg-col-12-of-16"}):
         data_asin.append(i['data-asin'])
+    
+    if (len(data_asin) == 0):
+        for i in soup.findAll("div", {
+        'class': "sg-col-4-of-12 s-result-item s-asin sg-col-4-of-16 sg-col s-widget-spacing-small sg-col-4-of-20"}):
+            data_asin.append(i['data-asin'])
+    
+    print("data_asin")
     print(data_asin)
     productNames = {}
     for i in range(len(data_asin)):
