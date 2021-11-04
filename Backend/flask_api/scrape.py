@@ -2,6 +2,8 @@ import requests
 import json
 import pandas as pd
 from bs4 import BeautifulSoup
+import nltk
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 header = {
     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36'
@@ -47,12 +49,12 @@ def getProductNames(search):
     for i in soup.findAll("div", {
         'class': "s-result-item s-asin sg-col-0-of-12 sg-col-16-of-20 sg-col s-widget-spacing-small sg-col-12-of-16"}):
         data_asin.append(i['data-asin'])
-    
+
     if (len(data_asin) == 0):
         for i in soup.findAll("div", {
         'class': "sg-col-4-of-12 s-result-item s-asin sg-col-4-of-16 sg-col s-widget-spacing-small sg-col-4-of-20"}):
             data_asin.append(i['data-asin'])
-    
+
     print("data_asin")
     print(data_asin)
     productNames = {}
@@ -96,6 +98,20 @@ def getProductContent(data_asin):
         productList[productName.strip()] = reviews
 
     return productList
+
+
+def separateReviews(reviews):
+    pos = []
+    neg = []
+    analyzer = SentimentIntensityAnalyzer()
+    for review in reviews:
+        # 0.4 is a common threshold for separating reviews
+        if analyzer.polarity_scores(review)["compound"] > 0.4:
+            pos.append(review)
+        else:
+            neg.append(review)
+
+    return pos, neg
 
 
 def main():
