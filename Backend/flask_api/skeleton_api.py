@@ -1,5 +1,4 @@
-from flask import Flask, session, request, jsonify
-import Backend
+from flask import Flask, request, jsonify
 from Backend.flask_api.scrape import *
 import nltk
 import ssl
