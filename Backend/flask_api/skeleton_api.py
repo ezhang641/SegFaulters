@@ -1,10 +1,9 @@
 from flask import Flask, session, request, jsonify
-import Backend
-from Backend.flask_api.scrape import *
+from scrape import *
 import nltk
 import ssl
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-from Backend.flask_api.summarize_text import *
+from summarize_text import *
 import scipy as sp
 
 try:
