@@ -23,10 +23,11 @@ final class DetailedView: UIViewController {
     @IBOutlet weak var summary: UILabel!
     //review1
     
-    @IBOutlet weak var review1: UILabel!
+    @IBOutlet weak var productImg: UIImageView!
+    // @IBOutlet weak var review1: UILabel!
     //review2
    
-    @IBOutlet weak var review2: UILabel!
+   // @IBOutlet weak var review2: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +44,9 @@ final class DetailedView: UIViewController {
                     }
 //                    self.sentiment.text = product.sentiment
                     self.summary.text = product.summary
-                    self.review1.text = product.review1
-                    self.review2.text = product.review2
+                    //self.review1.text = product.review1
+                    //self.review2.text = product.review2
+                    self.productImg = product.image
                 }
             }
         }, asin: asin)
