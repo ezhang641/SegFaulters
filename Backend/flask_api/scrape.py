@@ -32,6 +32,7 @@ def getAmazonSearch(search_query):
     # page = requests.get(url, cookies=cookie, headers=header)
     browse.get(url)
     page = browse.page_source
+    time.sleep(1)
     if page != '':
         return page
     print("Error with request")
@@ -43,15 +44,15 @@ def searchAsin(asin):
     print(url)
     # page = requests.get(url, cookies=cookie, headers=header)
     browse.get(url)
-    with open("cookie_file", "wb") as filehandler:
-        pickle.dump(browse.get_cookies(), filehandler)
+    #with open("cookie_file", "wb") as filehandler:
+       # pickle.dump(browse.get_cookies(), filehandler)
 
-    cookies = pickle.load(open("cookie_file", "rb"))
+    # cookies = pickle.load(open("cookie_file", "rb"))
 
-    for i in cookies:
-        browse.add_cookie(i)
-        print('here')
-    time.sleep(3)
+    #for i in cookies:
+       # browse.add_cookie(i)
+       # print('here')
+    time.sleep(2)
     page = browse.page_source
     if page != '':
         return page
@@ -65,7 +66,8 @@ def searchReviews(review_link):
     # page = requests.get(url, cookies=cookie, headers=header)
     browse.get(url)
     page = browse.page_source
-    print(page)
+    # print(page)
+    print("Got reviews html page")
     if page != '':
         return page
     print("Error with request")
@@ -94,7 +96,7 @@ def getProductNames(search):
         if i > 2:
             break
         response = searchAsin(data_asin[i])
-
+        print("got response")
         soup = BeautifulSoup(response, "html.parser")
         productNames[soup.find("span", {'id': "productTitle"}).text.strip()] = data_asin[i]
 
@@ -125,7 +127,7 @@ def getProductContent(data_asin):
             # Filter review content
             if len(i.text) > 3 and "The media could not be loaded" not in i.text:
                 reviews.append(i.text.strip())
-
+        
     print(productName)
     if productName != '':
         productList[productName.strip()] = reviews
