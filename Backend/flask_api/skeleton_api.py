@@ -1,11 +1,11 @@
 from flask import Flask, request, jsonify
-from Backend.flask_api.scrape import *
+# from flask_api.scrape import *
 from flask_api.sentiment import find_sentiment
 import nltk
 import ssl
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-from Backend.flask_api.summarize_text import *
-from Backend.flask_api.sentiment import *
+from flask_api.summarize_text import generate_summary
+from flask_api.sentiment import *
 import scipy as sp
 
 try:
