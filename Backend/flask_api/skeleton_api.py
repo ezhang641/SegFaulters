@@ -66,14 +66,29 @@ def get_amazon_product_content():
         ret = {}
         content = getProductContent(request.json["product_asin"])
         sentiments = []
+        emotion_dict = {
+            "Happy" : 0.0,
+            "Angry" : 0.0,
+            "Surprise" : 0.0,
+            "Sad" : 0.0,
+            "Fear" : 0.0
+        }
         total_summary = ""
         for summary in content:
             for rev in content[summary]:
-                sentiments.append(analyzer.polarity_scores(rev)["compound"])
                 total_summary += rev
+                dict, prediction = find_sentiment(rev)
+                sentiments.append(prediction)
+                for key, value in dict.items():
+                    emotion_dict[key] += value
             ret["name"] = summary
-        # ret["sentiment"] = str(sum(sentiments) / len(sentiments))
-        ret['sentiment'] = find_sentiment(total_summary)
+        # print(emotion_dict)
+        # print(sentiments)
+        for key, value in emotion_dict.items():
+            emotion_dict[key] = value / float(len(sentiments))
+        # print(emotion_dict)
+        # print(max(set(sentiments), key=sentiments.count))
+        ret['sentiment'] = get_emoji(emotion_dict, max(set(sentiments), key=sentiments.count))
         ret["summary"] = generate_summary(total_summary)
         ret["review1"] = content[ret["name"]][0]
         ret["review2"] = content[ret["name"]][1]
