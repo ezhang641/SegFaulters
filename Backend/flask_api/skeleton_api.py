@@ -1,9 +1,11 @@
 from flask import Flask, request, jsonify
 from Backend.flask_api.scrape import *
+from flask_api.sentiment import find_sentiment
 import nltk
 import ssl
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from Backend.flask_api.summarize_text import *
+from Backend.flask_api.sentiment import *
 import scipy as sp
 
 try:
@@ -70,9 +72,9 @@ def get_amazon_product_content():
                 sentiments.append(analyzer.polarity_scores(rev)["compound"])
                 total_summary += rev
             ret["name"] = summary
-        ret["sentiment"] = str(sum(sentiments) / len(sentiments))
+        # ret["sentiment"] = str(sum(sentiments) / len(sentiments))
+        ret['sentiment'] = find_sentiment(total_summary)
         ret["summary"] = generate_summary(total_summary)
-
         ret["review1"] = content[ret["name"]][0]
         ret["review2"] = content[ret["name"]][1]
 

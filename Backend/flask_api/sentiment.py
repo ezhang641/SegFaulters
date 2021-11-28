@@ -16,8 +16,8 @@ else:
 nltk.download('punkt')
 nltk.download('wordnet')
 
-def f():
-    text = "This product was average. I thought it was just fine. I won't go out of my way to buy it again."
+def find_sentiment(text):
+    # text = "This product was average. I thought it was just fine. I won't go out of my way to buy it again."
 
     #Call to the function
     print(te.get_emotion(text))
@@ -58,6 +58,7 @@ def f():
         emoji = "Neutral"
 
     print(emoji)
+    return emoji
 
 
 def create_feature(text, nrange=(1, 1)):
@@ -76,6 +77,3 @@ def ngram(token, n):
         ngram = ' '.join(token[i-n+1:i+1])
         output.append(ngram) 
     return output
-
-if __name__ == '__main__':
-   f()
