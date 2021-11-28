@@ -18,27 +18,39 @@ final class ProductStore: ObservableObject {
                 print("getChatts: Bad URL")
                 return
             }
-            
+
             var request = URLRequest(url: apiUrl)
             request.httpMethod = "POST"
             print(query)
-        
+
             request.httpBody = try? JSONSerialization.data(withJSONObject: ["name" : query])
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            
+
             URLSession.shared.dataTask(with: request) { data, response, error in
                 var success = false
                 defer { completion?(success)}
                 guard let data = data, error == nil else {
+                    //ADDED FOR TESTING
+                    var product = Product()
+                    product.name = "test"
+                    product.asin = "12345"
+                    self.products.append(product)
+                    var product2 = Product()
+                    product2.name = "test2"
+                    product2.asin = "6789"
+                    self.products.append(product2)
+                    print(self.products)
+                    success = true
+                    //END ADDED FOR TESTING
                     print("getNames: NETWORKING ERROR")
-                    
+
                     return
                 }
                 if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
                     print("getNames: HTTP STATUS: \(httpStatus.statusCode)")
                     return
                 }
-                
+
                 guard let jsonObj = try? JSONSerialization.jsonObject(with: data) as? [String:String] else {
                     print("getNames: failed JSON deserialization")
                     return
@@ -54,6 +66,8 @@ final class ProductStore: ObservableObject {
 
             }.resume()
         
+
+
         
         
         }
@@ -96,17 +110,26 @@ final class ProductStore: ObservableObject {
                         if key == "name" {
                             product.name = value
                         }
-                        if key == "review1" {
-                            product.review1 = value
-                        }
-                        if key == "review2" {
-                            product.review2 = value
-                        }
+//                        if key == "review1" {
+//                            product.review1 = value
+//                        }
+//                        if key == "review2" {
+//                            product.review2 = value
+//                        }
                         if key == "sentiment" {
                             product.sentiment = value
                         }
                         if key == "summary" {
                             product.summary = value
+                        }
+//                        if key == "image" {
+//                            product.image = value
+//                        }
+                        if key == "pros" {
+                            product.pros = value
+                        }
+                        if key == "cons" {
+                            product.cons = value
                         }
                     }
                     self.products.append(product)

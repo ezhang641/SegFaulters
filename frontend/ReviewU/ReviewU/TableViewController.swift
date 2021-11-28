@@ -19,18 +19,6 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchInput: UISearchBar!
     
     
-//    func updateSearchResults(for searchController: UISearchController) {
-//        filteredTableData.removeAll(keepingCapacity: false)
-//
-//        filteredTableData = tableData.filter { (item: Item) -> Bool in
-//
-//            return (item.name?.lowercased().contains(searchController.searchBar.text!.lowercased()))!
-//        }
-//
-//        self.tableView.reloadData()
-//    }
-    
-    
  
  
     override func viewDidLoad() {
@@ -52,7 +40,17 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
     }
     func searchBarSearchButtonClicked( _ searchBar: UISearchBar)
     {
-        print(searchBar.text!)
+        //let recentSearches = RecentSearches()
+        
+        //TabBarController.recentSearches.searches.append(searchBar.text!)
+        //print(recentSearches.searches)
+        
+       // let tabbar = tabBarController as! TabBarController
+
+        //tabbar.recentSearches.insert(searchBar.text!, at: 0)
+        
+        
+        
         ProductStore.shared.getNames({ success in
             DispatchQueue.main.async {
                 if success {
@@ -78,35 +76,45 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
     
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("Table View")
+
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as? TableCell else {
             fatalError("No reusable cell!")
         }
         let product = ProductStore.shared.products[indexPath.row]
-        print(product.name!)
+        
         names.append(product.name!)
         nameObj[product.name!] = product.asin
         cell.testLabel.text = product.name
-        // print(tableData[indexPath.row])
+        
+        //TODO: get rid of this once figure out how to get prepare() function called
+        
+        let tabbar = tabBarController as! TabBarController
+        tabbar.recentSearches.insert(product, at: 0)
+
         return cell
         
     }
     
+    
+    //NEED to connect with backend to test this. This function isn't being called at all right now, and I think it's because the productStore doesn't work properly when just dummy data. recentSearches list is empty because this isnt being called.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       guard
         segue.identifier == "showDetailedViewSegue",
         let indexPath = tableView.indexPathForSelectedRow,
-        let detailViewController = segue.destination as? DetailedView
+        let detailViewController = segue.destination as? SummaryView
         else {
           return
       }
 
-      //let candy: Candy
-       // let item: Item
         let asin: String
         asin = nameObj[names[indexPath.row]]!
-        
-      //detailViewController.candy = candy
+
+        print("IN HERE")
+        let product = ProductStore.shared.products[indexPath.row]
+        let tabbar = tabBarController as! TabBarController
+        tabbar.recentSearches.insert(product, at: 0)
+        //tabbar.recentSearches.insert(product.name!, at: 0)
+
         detailViewController.asin = asin
         nameObj.removeAll()
         names.removeAll()

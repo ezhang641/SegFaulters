@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class DetailedView: UIViewController {
+final class SummaryView: UIViewController {
 //  @IBOutlet weak var detailDescriptionLabel: UILabel!
 //  @IBOutlet weak var candyImageView: UIImageView!
     var asin = ""
