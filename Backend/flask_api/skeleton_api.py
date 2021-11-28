@@ -1,11 +1,11 @@
 from flask import Flask, request, jsonify
-from Backend.flask_api.scrape import *
+from flask_api.scrape import *
 from flask_api.sentiment import find_sentiment
 import nltk
 import ssl
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-from Backend.flask_api.summarize_text import *
-from Backend.flask_api.sentiment import *
+from flask_api.summarize_text import generate_summary
+from flask_api.sentiment import *
 import scipy as sp
 
 try:
@@ -81,6 +81,7 @@ def get_amazon_product_content():
         return jsonify(**ret)
     else:
         return "Cant find form"
+
 
 @app.route("/amazon/getnames", methods=["POST"])
 def get_amazon_names():

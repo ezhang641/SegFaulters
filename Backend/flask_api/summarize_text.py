@@ -6,6 +6,8 @@ import networkx as nx
 import scipy as sp
 import re
 
+np.errstate(invalid='ignore', divide='ignore')
+
 
 def read_article(file_name):
     filedata = file_name
@@ -46,7 +48,6 @@ def sentence_similarity(sent1, sent2, stopwords=None):
 
     if np.isnan(cosine_distance(vector1, vector2)):
         return 0
-
     return 1 - cosine_distance(vector1, vector2)
 
 
