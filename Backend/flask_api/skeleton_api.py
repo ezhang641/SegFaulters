@@ -67,11 +67,11 @@ def get_amazon_product_content():
         sentiments = []
         total_summary = ""
         for summary in content:
-            #for rev in content[summary]:
-                #sentiments.append(analyzer.polarity_scores(rev)["compound"])
-               # total_summary += rev
+            for rev in content[summary]:
+                sentiments.append(analyzer.polarity_scores(rev)["compound"])
+                total_summary += rev
             ret["name"] = summary
-        #ret["sentiment"] = str(sum(sentiments) / len(sentiments))
+        ret["sentiment"] = str(sum(sentiments) / len(sentiments))
         ret["summary"] = generate_summary(total_summary)
 
         ret["review1"] = content[ret["name"]][0]

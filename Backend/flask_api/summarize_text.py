@@ -5,6 +5,7 @@ import numpy as np
 import networkx as nx
 import scipy as sp
 
+np.errstate(invalid='ignore', divide='ignore')
 
 def read_article(file_name):
     filedata = file_name
@@ -41,6 +42,9 @@ def sentence_similarity(sent1, sent2, stopwords=None):
         if w in stopwords:
             continue
         vector2[all_words.index(w)] += 1
+    
+    if np.isnan(cosine_distance(vector1, vector2)):
+        return 0
 
     return 1 - cosine_distance(vector1, vector2)
 
