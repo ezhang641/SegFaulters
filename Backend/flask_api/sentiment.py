@@ -5,6 +5,7 @@ import ssl
 import pickle
 import re 
 from collections import Counter
+import os
 
 try:
     _create_unverified_https_context = ssl._create_unverified_context
@@ -24,12 +25,15 @@ def find_sentiment(text):
     emotion_dict = te.get_emotion(text)
 
     # load the model from disk
-    filename = 'finalized_model.sav'
+    filename = str(os.getcwd()) + '/Backend/flask_api/finalized_model.sav'
+    # filename = 'Backend/flask_api/finalized_model.sav'
     clf = pickle.load(open(filename, 'rb'))
 
     emoji_dict = {"joy":"😂", "fear":"😱", "anger":"😠", "sadness":"😢", "disgust":"😒", "shame":"😳", "guilt":"😳"}
    
-    vectorizer = pickle.load(open("vectorizer.pickle", 'rb'))
+    filename2 = str(os.getcwd()) + '/Backend/flask_api/vectorizer.pickle'
+
+    vectorizer = pickle.load(open(filename2, 'rb'))
 
     features = create_feature(text, nrange=(1, 4))
     features = vectorizer.transform(features)
