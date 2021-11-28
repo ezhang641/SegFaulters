@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-# from flask_api.scrape import *
+from flask_api.scrape import *
 from flask_api.sentiment import find_sentiment
 import nltk
 import ssl
@@ -81,6 +81,7 @@ def get_amazon_product_content():
         return jsonify(**ret)
     else:
         return "Cant find form"
+
 
 @app.route("/amazon/getnames", methods=["POST"])
 def get_amazon_names():
