@@ -8,7 +8,9 @@
 import Foundation
 import UIKit
 
-final class ProView: UIViewController {
+final class ProView: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+    
 //  @IBOutlet weak var detailDescriptionLabel: UILabel!
 //  @IBOutlet weak var candyImageView: UIImageView!
     var asin = ""
@@ -32,7 +34,11 @@ final class ProView: UIViewController {
     //review2
     @IBOutlet weak var productImg: UIImageView!
     
-   // @IBOutlet weak var review2: UILabel!
+    //@IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var tableview: UITableView!
+    // @IBOutlet weak var review2: UILabel!
+    
+    //@IBOutlet weak var tableview: UITableViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,27 +46,13 @@ final class ProView: UIViewController {
         asin = tabbar.asin
         self.productName.text = tabbar.productName
         self.sentiment.text = tabbar.sentiment
-        self.pros.text = tabbar.pros.first
+        //self.pros.text = tabbar.pros.first
         
-//        let sentiment = self.sentiment
-//        let review1 = self.review1
-//        let review2 = self.review2
-//        let summary = self.summary
-//        let sentimentLabel = self.sentimentLabel
-//        let reviewsLabel = self.reviewsLabel
-//        let summaryLabel = self.summaryLabel
-//        if Float(jsonObj["sentiment"]!)! > 0.0 {
-//                sentiment!.text = "Positive"
-//        }
-//        else {
-//                sentiment!.text = "Negative"
-//        }
-//        review1!.text = jsonObj["review1"]
-//        review2!.text = jsonObj["review2"]
-//        summary!.text = jsonObj["summary"]
-//        sentimentLabel!.text = "Sentiment:"
-//        reviewsLabel!.text = "Popular reviews:"
-        //summaryLabel!.text = "Summary:"
+        
+        //tableView.delegate = self
+        print(tabbar.pros)
+        //self.tableview.dataSource = (tabbar.pros as! UITableViewDataSource)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,44 +60,37 @@ final class ProView: UIViewController {
         asin = tabbar.asin
         self.productName.text = tabbar.productName
         self.sentiment.text = tabbar.sentiment
-        self.pros.text = tabbar.pros.first
+        //self.pros.text = tabbar.pros.first
+        //self.tableview.dataSource = tabbar.pros as! UITableViewDataSource
 
     }
     
-    
-    
-    
-//    }
-   // var num: String = ""
-    
-//      var item: Item? {
-//        didSet {
-//          configureView()
-//        }
-//      }
-    
-   
-//    func configureView() {
-//      if let item = item,
-//         let itemName = itemName,
-//         let sentiment = sentiment,
-//         let review1 = review1,
-//         let review2 = review2,
-//         let summary = summary,
-//         let sentimentLabel = sentimentLabel,
-//         let reviewsLabel = reviewsLabel,
-//         let summaryLabel = summaryLabel{
-//          itemName.text = item.name
-//          sentiment.text = item.sentiment
-//          review1.text = item.review1
-//          review2.text = item.review2
-//          summary.text = item.summary
-//          sentimentLabel.text = "Sentiment:"
-//          reviewsLabel.text = "Popular reviews:"
-//          summaryLabel.text = "Summary:"
-//        }
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
 //
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let tabbar = tabBarController as! TabView
+        return tabbar.pros.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as? TableCell else {
+            fatalError("No reusable cell!")
+        }
+        let tabbar = tabBarController as! TabView
+        let pro = tabbar.pros[indexPath.row]
+        
+        cell.testLabel.text = pro
+
+        return cell
+    }
+//
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+//        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
 //    }
+    
+    
     
 
 }
