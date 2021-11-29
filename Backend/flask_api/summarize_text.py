@@ -14,7 +14,8 @@ def read_article(file_name):
     article = re.split('[?.!]', filedata)
     sentences = []
     for sentence in article:
-        # print(sentence)
+        if len(sentence) == 0 or len(sentence.split()) <= 4:
+            continue
         sentences.append(sentence.replace("[^a-zA-Z]", " ").split(" "))
     sentences.pop()
     return sentences
