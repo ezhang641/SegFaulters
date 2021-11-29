@@ -30,18 +30,18 @@ final class ProductStore: ObservableObject {
                 var success = false
                 defer { completion?(success)}
                 guard let data = data, error == nil else {
-                    //ADDED FOR TESTING
-                    var product = Product()
-                    product.name = "test"
-                    product.asin = "12345"
-                    self.products.append(product)
-                    var product2 = Product()
-                    product2.name = "test2"
-                    product2.asin = "6789"
-                    self.products.append(product2)
-                    print(self.products)
-                    success = true
-                    //END ADDED FOR TESTING
+//                    //ADDED FOR TESTING
+//                    var product = Product()
+//                    product.name = "test"
+//                    product.asin = "12345"
+//                    self.products.append(product)
+//                    var product2 = Product()
+//                    product2.name = "test2"
+//                    product2.asin = "6789"
+//                    self.products.append(product2)
+//                    print(self.products)
+//                    success = true
+//                    //END ADDED FOR TESTING
                     print("getNames: NETWORKING ERROR")
 
                     return
