@@ -4,19 +4,20 @@ from nltk.cluster.util import cosine_distance
 import numpy as np
 import networkx as nx
 import scipy as sp
+import re
 
 np.errstate(invalid='ignore', divide='ignore')
 
 
 def read_article(file_name):
     filedata = file_name
-    article = filedata.split(". ")
+    article = re.split('[?.!]', filedata)
     sentences = []
     for sentence in article:
-        # print(sentence)
+        if len(sentence) == 0 or len(sentence.split()) <= 4:
+            continue
         sentences.append(sentence.replace("[^a-zA-Z]", " ").split(" "))
     sentences.pop()
-
     return sentences
 
 
@@ -61,16 +62,13 @@ def build_similarity_matrix(sentences, stop_words):
 
     return similarity_matrix
 
-
+nltk.download("stopwords")
 def generate_summary(file_name, top_n=5):
-    
-    nltk.download("stopwords")
     stop_words = stopwords.words('english')
     summarize_text = []
 
     # Step 1 - Read text anc split it
     sentences = read_article(file_name)
-    # print(sentences)
     # Step 2 - Generate Similary Martix across sentences
     sentence_similarity_martix = build_similarity_matrix(sentences, stop_words)
 
@@ -86,6 +84,4 @@ def generate_summary(file_name, top_n=5):
         summarize_text.append(" ".join(ranked_sentence[i][1]))
 
     return ". ".join(summarize_text)
-    # Step 5 - Offcourse, output the summarize text
-    # print("Summarize Text: \n", ". ".join(summarize_text))
 

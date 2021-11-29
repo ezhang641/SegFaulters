@@ -1,11 +1,13 @@
 from flask import Flask, request, jsonify
-from flask_api.scrape import *
-from flask_api.sentiment import find_sentiment
+from Backend.flask_api.scrape import *
+from Backend.flask_api.sentiment import find_sentiment
 import nltk
 import ssl
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-from flask_api.summarize_text import generate_summary
-from flask_api.sentiment import *
+from Backend.flask_api.summarize_text import generate_summary
+from Backend.flask_api.sentiment import *
+from Backend.flask_api.pros_cons import make_pros_cons
+from Backend.flask_api.abstractive_summary import summarize
 import scipy as sp
 
 try:
@@ -34,31 +36,6 @@ def index():
 def get_product_information():
     pass
 
-# @app.route("/product/summarize", methods=["GET"])
-# def get_product_summary():
-#     if "summaries" in request.form:
-#         total_summary = ""
-#         for summary in request.form["summaries"]:
-#             total_summary += summary
-
-#         return jsonify(generate_summary(total_summary))
-#     else:
-#         return "Cant find form"
-
-
-# @app.route("/product/sentiment", methods=["GET"])
-# def get_product_sentiment():
-#     if "summaries" in request.form:
-#         sentiments = []
-#         summaries = request.form["summaries"]
-#         for summary in summaries:
-#             sentiments.append(analyzer.polarity_scores(summary)["compound"])
-#         print(sentiments)
-#         return jsonify(sum(sentiments) / len(sentiments))
-#     else:
-#         return "Cant find form"
-
-
 ### AMAZON ROUTES ###
 @app.route("/amazon/information", methods=["POST"])
 def get_amazon_product_content():
@@ -74,6 +51,7 @@ def get_amazon_product_content():
             "Fear" : 0.0
         }
         total_summary = ""
+        reviews_list = []
         for summary in content:
             for rev in content[summary]:
                 total_summary += rev
@@ -90,6 +68,9 @@ def get_amazon_product_content():
         # print(max(set(sentiments), key=sentiments.count))
         ret['sentiment'] = get_emoji(emotion_dict, max(set(sentiments), key=sentiments.count))
         ret["summary"] = generate_summary(total_summary)
+        pros, cons = make_pros_cons(reviews_list)
+        ret["pros"] = pros
+        ret["cons"] = cons
         ret["review1"] = content[ret["name"]][0]
         ret["review2"] = content[ret["name"]][1]
 
