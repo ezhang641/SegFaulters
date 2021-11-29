@@ -32,8 +32,8 @@ cookie = {
 def getAmazonSearch(search_query):
     url = "https://www.amazon.com/s?k=" + search_query
     print(url)
-
-    page = requests.get(url, headers=header, cookies=cookie)
+    #page = requests.get(url, headers=header, cookies=cookie)
+    page = requests.get('http://localhost:8050/render.html', params={'url':url, 'wait': 2})
     #browse.get(url)
     print("Got web page")
     #print(page)
@@ -48,7 +48,8 @@ def getAmazonSearch(search_query):
 def searchAsin(asin):
     url = "https://www.amazon.com/dp/" + asin
     print(url)
-    page = requests.get(url, cookies=cookie, headers=headers)
+    #page = requests.get(url, headers=header, cookies=cookie)
+    page = requests.get('http://localhost:8050/render.html', params={'url':url, 'wait': 2})
     #browse.get(url)
     #with open("cookie_file", "wb") as filehandler:
        # pickle.dump(browse.get_cookies(), filehandler)
@@ -68,8 +69,8 @@ def searchAsin(asin):
 def searchReviews(review_link):
     url = "https://www.amazon.com" + review_link
     print(url)
-    page = requests.get(url, cookies=cookie, headers=header)
-    #browse.get(url)
+    #page = requests.get(url, headers=header, cookies=cookie)
+    page = requests.get('http://localhost:8050/render.html', params={'url':url, 'wait': 2})#browse.get(url)
     #page = browse.page_source
     # print(page)
     print("Got reviews html page")
@@ -83,7 +84,7 @@ def getProductNames(search):
     data_asin = []
     response = getAmazonSearch(search)
     #print(response)
-    soup = BeautifulSoup(response.content, "html.parser")
+    soup = BeautifulSoup(response.text, "html.parser")
 
     # Finds all products related to the search query
     for i in soup.findAll("div", {
@@ -101,10 +102,10 @@ def getProductNames(search):
     for i in range(len(data_asin)):
         if i > 2:
             break
-        time.sleep(2)
         response = searchAsin(data_asin[i])
         print("got response")
-        soup = BeautifulSoup(response.content, "html.parser")
+        # print(response.content)
+        soup = BeautifulSoup(response.text, "html.parser")
         productNames[soup.find("span", {'id': "productTitle"}).text.strip()] = data_asin[i]
 
     return productNames
@@ -113,7 +114,6 @@ def getProductNames(search):
 def getProductContent(data_asin):
     # Get to review page
     response = searchAsin(data_asin)
-    time.sleep(2)
     soup = BeautifulSoup(response.content, "html.parser")
     j = soup.find("a", {'data-hook': "see-all-reviews-link-foot"})
     link = j['href']
@@ -162,9 +162,9 @@ def main():
     productName = getProductNames(search)
     print(productName)
     
-    #asin = 'B09G9CJM1Z'
-    #productList = getProductContent(asin)
-    #print(productList)
+    asin = 'B07PXGQC1Q'
+    productList = getProductContent(asin)
+    print(productList)
 
 
 if __name__ == "__main__":
