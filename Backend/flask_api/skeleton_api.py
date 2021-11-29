@@ -3,6 +3,9 @@ from scrape import *
 import nltk
 import ssl
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
+from sentiment import *
+from pros_cons import make_pros_cons
+from abstractive_summary import summarize
 from summarize_text import *
 import scipy as sp
 
@@ -23,39 +26,10 @@ app = Flask(__name__)
 def index():
     return "Index"
 
-
-#### USER ROUTES ####
-# WILL BE IMPLEMENTED IN MVP
-
 ### PRODUCT ROUTES ###
 @app.route("/product/information", methods=["GET"])
 def get_product_information():
     pass
-
-# @app.route("/product/summarize", methods=["GET"])
-# def get_product_summary():
-#     if "summaries" in request.form:
-#         total_summary = ""
-#         for summary in request.form["summaries"]:
-#             total_summary += summary
-
-#         return jsonify(generate_summary(total_summary))
-#     else:
-#         return "Cant find form"
-
-
-# @app.route("/product/sentiment", methods=["GET"])
-# def get_product_sentiment():
-#     if "summaries" in request.form:
-#         sentiments = []
-#         summaries = request.form["summaries"]
-#         for summary in summaries:
-#             sentiments.append(analyzer.polarity_scores(summary)["compound"])
-#         print(sentiments)
-#         return jsonify(sum(sentiments) / len(sentiments))
-#     else:
-#         return "Cant find form"
-
 
 ### AMAZON ROUTES ###
 @app.route("/amazon/information", methods=["POST"])
@@ -63,23 +37,40 @@ def get_amazon_product_content():
     if "product_asin" in request.json:
         ret = {}
         content = getProductContent(request.json["product_asin"])
-        # return jsonify(**ret)
         sentiments = []
+        emotion_dict = {
+            "Happy" : 0.0,
+            "Angry" : 0.0,
+            "Surprise" : 0.0,
+            "Sad" : 0.0,
+            "Fear" : 0.0
+        }
         total_summary = ""
+        reviews_list = []
         for summary in content:
             for rev in content[summary]:
-                sentiments.append(analyzer.polarity_scores(rev)["compound"])
+                reviews_list.append(rev)
                 total_summary += rev
+                dict, prediction = find_sentiment(rev)
+                sentiments.append(prediction)
+                for key, value in dict.items():
+                    emotion_dict[key] += value
             ret["name"] = summary
-        ret["sentiment"] = str(sum(sentiments) / len(sentiments))
+        for key, value in emotion_dict.items():
+            emotion_dict[key] = value / float(len(sentiments))
+        ret['sentiment'] = get_emoji(emotion_dict, max(set(sentiments), key=sentiments.count))
         ret["summary"] = generate_summary(total_summary)
-
+        pros, cons = make_pros_cons(reviews_list)
+        print(pros, cons)
+        ret["pros"] = "*".join(pros)
+        ret["cons"] = "*".join(cons)
         ret["review1"] = content[ret["name"]][0]
         ret["review2"] = content[ret["name"]][1]
 
         return jsonify(**ret)
     else:
         return "Cant find form"
+
 
 @app.route("/amazon/getnames", methods=["POST"])
 def get_amazon_names():
