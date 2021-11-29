@@ -26,12 +26,13 @@ def make_pros_cons(reviews):
     cons = []
     for review in reviews:
         polarity_score = analyzer.polarity_scores(review)["compound"]
+        print(polarity_score)
         # condensed = generate_summary(review, top_n=1)
         condensed = summarize(review)
         condensed = condensed.strip()
         if len(condensed.split(". ")[-1].split(" ")) < 5:
             condensed = ". ".join(condensed.split(". ")[:-1])
-
+        print(condensed)
         if polarity_score > 0.4:
             pros.append((condensed, polarity_score))
         else:

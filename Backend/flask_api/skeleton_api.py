@@ -54,6 +54,7 @@ def get_amazon_product_content():
         reviews_list = []
         for summary in content:
             for rev in content[summary]:
+                reviews_list.append(rev)
                 total_summary += rev
                 dict, prediction = find_sentiment(rev)
                 sentiments.append(prediction)
@@ -69,6 +70,7 @@ def get_amazon_product_content():
         ret['sentiment'] = get_emoji(emotion_dict, max(set(sentiments), key=sentiments.count))
         ret["summary"] = generate_summary(total_summary)
         pros, cons = make_pros_cons(reviews_list)
+        print(pros, cons)
         ret["pros"] = pros
         ret["cons"] = cons
         ret["review1"] = content[ret["name"]][0]
