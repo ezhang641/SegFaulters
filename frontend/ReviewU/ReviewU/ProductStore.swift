@@ -126,10 +126,12 @@ final class ProductStore: ObservableObject {
 //                            product.image = value
 //                        }
                         if key == "pros" {
-                            product.pros = value
+                            let components = value.components(separatedBy: "*")
+                            product.pros = components
                         }
                         if key == "cons" {
-                            product.cons = value
+                            let components = value.components(separatedBy: "*")
+                            product.cons = components
                         }
                     }
                     self.products.append(product)

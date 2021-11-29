@@ -10,7 +10,7 @@ import UIKit
 
 class TableViewController: UITableViewController, UITextFieldDelegate {
     
-
+    
     @IBAction func searchBar(_ sender: Any) {
         ProductStore.shared.getNames({ success in
             DispatchQueue.main.async {
@@ -30,8 +30,8 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
     //@IBOutlet weak var searchInput: UISearchBar!
     
     
- 
- 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,26 +39,26 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
         
         super.viewDidLoad()
         textField.delegate = self
-//        suggestionsArray = getCSVData()
-//        print(suggestionsArray[0])
+        //        suggestionsArray = getCSVData()
+        //        print(suggestionsArray[0])
         var data = readDataFromCSV(fileName: "/words", fileType: "csv")
         data = cleanRows(file: data!)
         suggestionsArray = csv(data: data!)
         print(suggestionsArray[1000])
-//        searchInput.delegate = self
-//        searchInput.showsScopeBar = true
-//        tableData = Item.items()
-
-//        resultSearchController = ({
-//            let controller = UISearchController(searchResultsController: nil)
-//            controller.searchResultsUpdater = self
-//            controller.obscuresBackgroundDuringPresentation = false;
-//            controller.searchBar.sizeToFit()
-//
-//            tableView.tableHeaderView = controller.searchBar
-//
-//            return controller
-
+        //        searchInput.delegate = self
+        //        searchInput.showsScopeBar = true
+        //        tableData = Item.items()
+        
+        //        resultSearchController = ({
+        //            let controller = UISearchController(searchResultsController: nil)
+        //            controller.searchResultsUpdater = self
+        //            controller.obscuresBackgroundDuringPresentation = false;
+        //            controller.searchBar.sizeToFit()
+        //
+        //            tableView.tableHeaderView = controller.searchBar
+        //
+        //            return controller
+        
     }
     
     
@@ -73,83 +73,83 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     func readDataFromCSV(fileName:String, fileType: String)-> String!{
-            guard let filepath = Bundle.main.path(forResource: fileName, ofType: fileType)
-                else {
-                    return nil
-            }
-            do {
-                var contents = try String(contentsOfFile: filepath, encoding: .utf8)
-                contents = cleanRows(file: contents)
-                return contents
-            } catch {
-                print("File Read Error for file \(filepath)")
-                return nil
-            }
+        guard let filepath = Bundle.main.path(forResource: fileName, ofType: fileType)
+        else {
+            return nil
         }
+        do {
+            var contents = try String(contentsOfFile: filepath, encoding: .utf8)
+            contents = cleanRows(file: contents)
+            return contents
+        } catch {
+            print("File Read Error for file \(filepath)")
+            return nil
+        }
+    }
     
     func csv(data: String) -> [String] {
-            var result = [String]()
-            let rows = data.components(separatedBy: "\n")
-            for row in rows {
-                result.append(row)
-            }
-            return result
+        var result = [String]()
+        let rows = data.components(separatedBy: "\n")
+        for row in rows {
+            result.append(row)
         }
+        return result
+    }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-            return !autoCompleteText( in : textField, using: string, suggestionsArray: suggestionsArray)
+        return !autoCompleteText( in : textField, using: string, suggestionsArray: suggestionsArray)
     }
     
     func autoCompleteText( in textField: UITextField, using string: String, suggestionsArray: [String]) -> Bool {
-            if !string.isEmpty,
-                let selectedTextRange = textField.selectedTextRange,
-                selectedTextRange.end == textField.endOfDocument,
-                let prefixRange = textField.textRange(from: textField.beginningOfDocument, to: selectedTextRange.start),
-                let text = textField.text( in : prefixRange) {
-                let prefix = text + string
-                let matches = suggestionsArray.filter {
-                    $0.hasPrefix(prefix)
-                }
-                if (matches.count > 0) {
-                    textField.text = matches[0]
-                    if let start = textField.position(from: textField.beginningOfDocument, offset: prefix.count) {
-                        textField.selectedTextRange = textField.textRange(from: start, to: textField.endOfDocument)
-                        return true
-                    }
+        if !string.isEmpty,
+           let selectedTextRange = textField.selectedTextRange,
+           selectedTextRange.end == textField.endOfDocument,
+           let prefixRange = textField.textRange(from: textField.beginningOfDocument, to: selectedTextRange.start),
+           let text = textField.text( in : prefixRange) {
+            let prefix = text + string
+            let matches = suggestionsArray.filter {
+                $0.hasPrefix(prefix)
+            }
+            if (matches.count > 0) {
+                textField.text = matches[0]
+                if let start = textField.position(from: textField.beginningOfDocument, offset: prefix.count) {
+                    textField.selectedTextRange = textField.textRange(from: start, to: textField.endOfDocument)
+                    return true
                 }
             }
-            return false
         }
+        return false
+    }
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            textField.resignFirstResponder()
-            return true
+        textField.resignFirstResponder()
+        return true
     }
-//    func searchBarSearchButtonClicked( _ searchBar: UISearchBar)
-//    {
-//        //let recentSearches = RecentSearches()
-//
-//        //TabBarController.recentSearches.searches.append(searchBar.text!)
-//        //print(recentSearches.searches)
-//
-//       // let tabbar = tabBarController as! TabBarController
-//
-//        //tabbar.recentSearches.insert(searchBar.text!, at: 0)
-//
-//
-//
-//        ProductStore.shared.getNames({ success in
-//            DispatchQueue.main.async {
-//                if success {
-//                    self.tableView.reloadData()
-//                }
-//            }
-//        }, query: searchBar.text!)
-//
-//        // self.tableView.reloadData()
-//
-//    }
+    //    func searchBarSearchButtonClicked( _ searchBar: UISearchBar)
+    //    {
+    //        //let recentSearches = RecentSearches()
+    //
+    //        //TabBarController.recentSearches.searches.append(searchBar.text!)
+    //        //print(recentSearches.searches)
+    //
+    //       // let tabbar = tabBarController as! TabBarController
+    //
+    //        //tabbar.recentSearches.insert(searchBar.text!, at: 0)
+    //
+    //
+    //
+    //        ProductStore.shared.getNames({ success in
+    //            DispatchQueue.main.async {
+    //                if success {
+    //                    self.tableView.reloadData()
+    //                }
+    //            }
+    //        }, query: searchBar.text!)
+    //
+    //        // self.tableView.reloadData()
+    //
+    //    }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -162,9 +162,9 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
     }
     
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as? TableCell else {
             fatalError("No reusable cell!")
         }
@@ -176,9 +176,9 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
         
         //TODO: get rid of this once figure out how to get prepare() function called
         
-//        let tabbar = tabBarController as! TabBarController
-//        tabbar.recentSearches.insert(product, at: 0)
-
+        //        let tabbar = tabBarController as! TabBarController
+        //        tabbar.recentSearches.insert(product, at: 0)
+        
         return cell
         
     }
@@ -186,24 +186,25 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
     
     //NEED to connect with backend to test this. This function isn't being called at all right now, and I think it's because the productStore doesn't work properly when just dummy data. recentSearches list is empty because this isnt being called.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      guard
-        segue.identifier == "showDetailedViewSegue",
-        let indexPath = tableView.indexPathForSelectedRow,
-        let detailViewController = segue.destination as? SummaryView
+        guard segue.identifier == "showDetailedViewSegue",
+              let indexPath = tableView.indexPathForSelectedRow,
+              let summaryViewController = segue.destination as? TabView
         else {
-          return
-      }
-
+            print("Else statement")
+            return
+        }
+        
         let asin: String
         asin = nameObj[names[indexPath.row]]!
-
+        
         print("IN HERE")
         let product = ProductStore.shared.products[indexPath.row]
         let tabbar = tabBarController as! TabBarController
         tabbar.recentSearches.insert(product, at: 0)
         //tabbar.recentSearches.insert(product.name!, at: 0)
-
-        detailViewController.asin = asin
+        
+        summaryViewController.asin = asin
+        
         nameObj.removeAll()
         names.removeAll()
     }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LqT-xU-DFG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LqT-xU-DFG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -93,10 +93,10 @@
             </objects>
             <point key="canvasLocation" x="2862.3188405797105" y="-1203.3482142857142"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab View-->
         <scene sceneID="5o2-ug-dw4">
             <objects>
-                <tabBarController id="CIs-jg-2fd" sceneMemberID="viewController">
+                <tabBarController id="CIs-jg-2fd" customClass="TabView" customModule="ReviewU" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="sCU-Ks-e6x"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cmp-ep-lHF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -482,7 +482,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="V82-in-qtn"/>
+        <segue reference="8V2-WO-Bp6"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>

@@ -80,24 +80,25 @@ final class RecentSearches: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      guard
-        segue.identifier == "showDetailedViewSegue",
-        let indexPath = tableView.indexPathForSelectedRow,
-        let detailViewController = segue.destination as? SummaryView
+        guard segue.identifier == "showDetailedViewSegue",
+              let indexPath = tableView.indexPathForSelectedRow,
+              let summaryViewController = segue.destination as? TabView
         else {
-          return
-      }
-
+            print("Else statement")
+            return
+        }
+        
         let asin: String
         asin = nameObj[names[indexPath.row]]!
-
+        
         print("IN HERE")
         let product = ProductStore.shared.products[indexPath.row]
         let tabbar = tabBarController as! TabBarController
         tabbar.recentSearches.insert(product, at: 0)
         //tabbar.recentSearches.insert(product.name!, at: 0)
-
-        detailViewController.asin = asin
+        
+        summaryViewController.asin = asin
+        
         nameObj.removeAll()
         names.removeAll()
     }

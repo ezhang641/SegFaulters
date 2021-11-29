@@ -36,26 +36,11 @@ final class ConView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ProductStore.shared.getContent({ success in
-            DispatchQueue.main.async {
-                if success {
-                    let product = ProductStore.shared.products[0]
-                    self.productName.text = product.name
-                    if Double(product.sentiment!)! > 0.0 {
-                        self.sentiment.text = "Positive"
-                    }
-                    else {
-                        self.sentiment.text = "Negative"
-                    }
-//                    self.sentiment.text = product.sentiment
-                    self.summary.text = product.summary
-                    //self.review1.text = product.review1
-                    //self.review2.text = product.review2
-                    self.productImg = product.image
-                    self.cons.text = product.cons
-                }
-            }
-        }, asin: asin)
+        let tabbar = tabBarController as! TabView
+        asin = tabbar.asin
+        self.productName.text = tabbar.productName
+        self.sentiment.text = tabbar.sentiment
+        self.cons.text = tabbar.cons.first
         
 //        let sentiment = self.sentiment
 //        let review1 = self.review1
@@ -78,7 +63,14 @@ final class ConView: UIViewController {
 //        summaryLabel!.text = "Summary:"
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        let tabbar = tabBarController as! TabView
+        asin = tabbar.asin
+        self.productName.text = tabbar.productName
+        self.sentiment.text = tabbar.sentiment
+        self.cons.text = tabbar.cons.first
+
+    }
     
     
 //    }
