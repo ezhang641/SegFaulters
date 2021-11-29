@@ -21,7 +21,7 @@ def find_sentiment(text):
     # text = "This product was average. I thought it was just fine. I won't go out of my way to buy it again."
 
     #Call to the function
-    print(te.get_emotion(text))
+    # print(te.get_emotion(text))
     emotion_dict = te.get_emotion(text)
 
     # load the model from disk
@@ -39,30 +39,33 @@ def find_sentiment(text):
     features = vectorizer.transform(features)
     prediction = clf.predict(features)[0]
 
-    print("prediction", prediction)
+    # print("prediction", prediction)
+    # print(emotion_dict)
+    
+    return emotion_dict, prediction
 
+def get_emoji(emotion_dict, prediction):
     high_key = max(emotion_dict, key=emotion_dict.get)
 
     emoji = ""
 
-    if high_key == "Happy":
-        # if above 0.67
-        if emotion_dict[high_key] >= 0.67 and prediction == "joy":
+    if (emotion_dict[high_key] >= 0.4 or prediction == "joy"):
+        emoji = "Happy"
+        if emotion_dict[high_key] >= 0.4 and prediction == "joy":
             emoji = "Love"
-        elif emotion_dict[high_key] >= 0.67:
-            emoji = "Happy"
-    elif (((prediction == "anger" or prediction == "disgust") and emotion_dict["Angry"] >= 0.5) or emotion_dict["Angry"] >= 0.67):
+    elif (((prediction == "anger" or prediction == "disgust") and (emotion_dict["Angry"] >= 0.2 or emotion_dict["Fear"] >= 0.2)) or emotion_dict["Angry"] >= 0.4):
         emoji = "Frustrated"
-    elif ((prediction == "sadness" and emotion_dict["Sad"] >= 0.5) or emotion_dict["Sad"] >= 0.67):
+    elif (prediction == "sadness" or emotion_dict["Sad"] >= 0.3):
         emoji = "Sad"
-    elif (emotion_dict["Surprise"] + emotion_dict["Fear"] <= 0.30):
+    elif (emotion_dict["Surprise"] + emotion_dict["Fear"] <= 0.20):
         emoji = "Bored"
 
     if emoji == "":
         emoji = "Neutral"
 
-    print(emoji)
+    # print(emoji)
     return emoji
+
 
 
 def create_feature(text, nrange=(1, 1)):
