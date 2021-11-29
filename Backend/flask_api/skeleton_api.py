@@ -63,8 +63,8 @@ def get_amazon_product_content():
         ret["summary"] = generate_summary(total_summary)
         pros, cons = make_pros_cons(reviews_list)
         print(pros, cons)
-        ret["pros"] = pros
-        ret["cons"] = cons
+        ret["pros"] = "*".join(pros)
+        ret["cons"] = "*".join(cons)
         ret["review1"] = content[ret["name"]][0]
         ret["review2"] = content[ret["name"]][1]
 
