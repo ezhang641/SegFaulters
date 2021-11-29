@@ -18,10 +18,7 @@ nltk.download('punkt')
 nltk.download('wordnet')
 
 def find_sentiment(text):
-    # text = "This product was average. I thought it was just fine. I won't go out of my way to buy it again."
-
     #Call to the function
-    # print(te.get_emotion(text))
     emotion_dict = te.get_emotion(text)
 
     # load the model from disk
@@ -38,9 +35,6 @@ def find_sentiment(text):
     features = create_feature(text, nrange=(1, 4))
     features = vectorizer.transform(features)
     prediction = clf.predict(features)[0]
-
-    # print("prediction", prediction)
-    # print(emotion_dict)
     
     return emotion_dict, prediction
 
@@ -63,7 +57,6 @@ def get_emoji(emotion_dict, prediction):
     if emoji == "":
         emoji = "Neutral"
 
-    # print(emoji)
     return emoji
 
 

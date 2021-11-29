@@ -27,10 +27,6 @@ app = Flask(__name__)
 def index():
     return "Index"
 
-
-#### USER ROUTES ####
-# WILL BE IMPLEMENTED IN MVP
-
 ### PRODUCT ROUTES ###
 @app.route("/product/information", methods=["GET"])
 def get_product_information():
@@ -61,12 +57,8 @@ def get_amazon_product_content():
                 for key, value in dict.items():
                     emotion_dict[key] += value
             ret["name"] = summary
-        # print(emotion_dict)
-        # print(sentiments)
         for key, value in emotion_dict.items():
             emotion_dict[key] = value / float(len(sentiments))
-        # print(emotion_dict)
-        # print(max(set(sentiments), key=sentiments.count))
         ret['sentiment'] = get_emoji(emotion_dict, max(set(sentiments), key=sentiments.count))
         ret["summary"] = generate_summary(total_summary)
         pros, cons = make_pros_cons(reviews_list)

@@ -23,14 +23,11 @@ options.add_argument('start-maximized')
 options.add_argument('disable-infobars')
 # browse = webdriver.Chrome(options=options, executable_path='/Users/evanzhang/Desktop/EECS 441/SegFaulters/Backend/flask_api/chromedriver')
 pathF = str(os.getcwd()) + '/Backend/flask_api/chromedriver'
-# print(pathF)
 browse = webdriver.Chrome(options=options, executable_path=pathF)
 
 
 def getAmazonSearch(search_query):
     url = "https://www.amazon.com/s?k=" + search_query
-    print(url)
-    # page = requests.get(url, cookies=cookie, headers=header)
     browse.get(url)
     page = browse.page_source
     if page != '':
@@ -41,8 +38,6 @@ def getAmazonSearch(search_query):
 
 def searchAsin(asin):
     url = "https://www.amazon.com/dp/" + asin
-    print(url)
-    # page = requests.get(url, cookies=cookie, headers=header)
     browse.get(url)
     page = browse.page_source
     if page != '':
@@ -53,8 +48,6 @@ def searchAsin(asin):
 
 def searchReviews(review_link):
     url = "https://www.amazon.com" + review_link
-    print(url)
-    # page = requests.get(url, cookies=cookie, headers=header)
     browse.get(url)
     page = browse.page_source
     if page != '':
@@ -140,10 +133,8 @@ def separateReviews(reviews):
 def main():
     search = 'airpods'
     productName = getProductNames(search)
-    print(productName)
 
     productList = getProductContent(productName['New Apple AirPods Pro'])
-    print(productList)
 
 
 if __name__ == "__main__":
