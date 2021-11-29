@@ -12,7 +12,6 @@ np.errstate(invalid='ignore', divide='ignore')
 def read_article(file_name):
     filedata = file_name
     article = re.split('[?.!]', filedata)
-    # article = filedata.split(". ")
     sentences = []
     for sentence in article:
         # print(sentence)
@@ -69,7 +68,6 @@ def generate_summary(file_name, top_n=5):
 
     # Step 1 - Read text anc split it
     sentences = read_article(file_name)
-    # print(sentences)
     # Step 2 - Generate Similary Martix across sentences
     sentence_similarity_martix = build_similarity_matrix(sentences, stop_words)
 
