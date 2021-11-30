@@ -48,6 +48,9 @@ def get_amazon_product_content():
         total_summary = ""
         reviews_list = []
         for summary in content:
+            if summary == 'image':
+                ret['image'] = content[summary]
+                continue
             for rev in content[summary]:
                 reviews_list.append(rev)
                 total_summary += rev

@@ -107,6 +107,10 @@ def getProductNames(search):
         # print(response.content)
         soup = BeautifulSoup(response.text, "html.parser")
         productNames[soup.find("span", {'id': "productTitle"}).text.strip()] = data_asin[i]
+        
+        image = soup.find('img', {'data-a-image-name': 'landingImage'}, src=True)
+        img_num = 'image' + str(i)
+        productNames[img_num] = image['src']
 
     return productNames
 
