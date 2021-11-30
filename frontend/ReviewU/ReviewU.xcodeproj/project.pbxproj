@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		187C750E2755C69100C7193D /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C750D2755C69100C7193D /* Loader.swift */; };
 		4515CABB272F74CA005EA0EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4515CABA272F74CA005EA0EF /* AppDelegate.swift */; };
 		4515CABD272F74CA005EA0EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4515CABC272F74CA005EA0EF /* SceneDelegate.swift */; };
 		4515CAC2272F74CA005EA0EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4515CAC0272F74CA005EA0EF /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		187C750D2755C69100C7193D /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		4515CAB7272F74CA005EA0EF /* ReviewU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReviewU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4515CABA272F74CA005EA0EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4515CABC272F74CA005EA0EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				E5A49E69274C16CF00100DB9 /* ProView.swift */,
 				E5A49E6B274C199A00100DB9 /* ConView.swift */,
 				E50AE1DF2754354200000809 /* InitialViewController.swift */,
+				187C750D2755C69100C7193D /* Loader.swift */,
 			);
 			path = ReviewU;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				4515CAD3272F7588005EA0EF /* SummaryView.swift in Sources */,
 				4515CACF272F750D005EA0EF /* TableViewController.swift in Sources */,
 				E51DFF852741FDF1001DBA8E /* RecentSearches.swift in Sources */,
+				187C750E2755C69100C7193D /* Loader.swift in Sources */,
 				4515CAD5272F75C4005EA0EF /* ProductStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

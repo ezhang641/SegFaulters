@@ -15,6 +15,7 @@ final class SummaryView: UIViewController {
     
     @IBOutlet weak var productName: UILabel!
     
+    @IBOutlet weak var summaryActivityIndicator: UIActivityIndicatorView!
     //sentiment
     
     @IBOutlet weak var sentiment: UILabel!
@@ -64,6 +65,9 @@ final class SummaryView: UIViewController {
         self.productName.text = tabbar.productName
         self.summary.text = tabbar.summary
         self.sentiment.text = tabbar.sentiment
+        if ((tabbar.summary != nil) {
+            summaryActivityIndicator.stopAnimating()
+        }
     }
     
     

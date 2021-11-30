@@ -8,20 +8,26 @@
 import Foundation
 import UIKit
 
-class TableViewController: UITableViewController, UITextFieldDelegate {
+class TableViewController: UITableViewController, UITextFieldDelegate, UITextViewDelegate {
     
+    @IBOutlet weak var activityIndicatorNames: UIActivityIndicatorView!
+    
+    @IBOutlet weak var textField: UITextField!
     
     @IBAction func searchBar(_ sender: Any) {
+        self.activityIndicatorNames.startAnimating()
         ProductStore.shared.getNames({ success in
             DispatchQueue.main.async {
                 if success {
+                    self.activityIndicatorNames.stopAnimating()
                     self.tableView.reloadData()
                 }
             }
         }, query: textField.text!)
     }
     
-    @IBOutlet weak var textField: UITextField!
+//    @IBOutlet weak var textField: UITextField!
+//    @IBOutlet weak var textField: UITextField!
     //@IBOutlet weak var textField: UITextField!
     
     var names:[String] = []
@@ -34,10 +40,11 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.activityIndicatorNames.stopAnimating()
         
-        
-        
-        super.viewDidLoad()
+//
+//
+//        super.viewDidLoad()
         textField.delegate = self
         //        suggestionsArray = getCSVData()
         //        print(suggestionsArray[0])
