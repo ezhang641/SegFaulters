@@ -122,6 +122,16 @@ def getProductContent(data_asin):
     reviews = []
     productName = ''
     productList = {}
+
+    # find product image
+    image = soup.find_all('img', {'data-a-image-name': 'landingImage'}, src=True)
+    image_src = [x['src'] for x in image]
+    image_src = [x for x in image_src if x.endswith('.jpg')]
+    if len(image_src) == 0:
+        productList['image'] = 'no image'
+    else:
+        productList['image'] = image_src[0]
+
     # Range dictates number of review pages
     for k in range(1):
         response = searchReviews(link + '&pageNumber=' + str(k))

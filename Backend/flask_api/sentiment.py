@@ -22,13 +22,13 @@ def find_sentiment(text):
     emotion_dict = te.get_emotion(text)
 
     # load the model from disk
-    filename = str(os.getcwd()) + '/Backend/flask_api/finalized_model.sav'
+    filename = str(os.getcwd()) + '/finalized_model.sav'
     # filename = 'Backend/flask_api/finalized_model.sav'
     clf = pickle.load(open(filename, 'rb'))
 
     emoji_dict = {"joy":"😂", "fear":"😱", "anger":"😠", "sadness":"😢", "disgust":"😒", "shame":"😳", "guilt":"😳"}
    
-    filename2 = str(os.getcwd()) + '/Backend/flask_api/vectorizer.pickle'
+    filename2 = str(os.getcwd()) + '/vectorizer.pickle'
 
     vectorizer = pickle.load(open(filename2, 'rb'))
 
