@@ -15,7 +15,7 @@ struct Product {
 //    var review1: String?
 //    var review2: String?
     var sentiment: String?
-    var image: UIImageView?
+    var image: String?
     var pros: [String]?
     var cons: [String]?
 }

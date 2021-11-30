@@ -31,12 +31,31 @@ final class SummaryView: UIViewController {
    // @IBOutlet weak var review2: UILabel!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+//        super.viewDidLoad()
         let tabbar = tabBarController as! TabView
-        asin = tabbar.asin
+//        DispatchQueue.main.async {
+//            if tabbar.summary != nil {
+        print("HERE")
+//                let product = ProductStore.shared.products[0]
         self.productName.text = tabbar.productName
         self.summary.text = tabbar.summary
         self.sentiment.text = tabbar.sentiment
+        self.summary.setNeedsDisplay()
+        self.productName.setNeedsDisplay()
+        self.sentiment.setNeedsDisplay()
+//            }
+//        }
+//        asin = tabbar.asin
+        
+        
+        
+//        let url = URL(string: tabbar.productImg)!
+
+        
+//        if let data = try? Data(contentsOf: url) {
+//                // Create Image and Update Image View
+//                productImg.image = UIImage(data: data)
+//            }
         
 //        let sentiment = self.sentiment
 //        let review1 = self.review1
@@ -65,9 +84,9 @@ final class SummaryView: UIViewController {
         self.productName.text = tabbar.productName
         self.summary.text = tabbar.summary
         self.sentiment.text = tabbar.sentiment
-        if ((tabbar.summary != nil) {
-            summaryActivityIndicator.stopAnimating()
-        }
+//        if ((tabbar.summary != nil) {
+//            summaryActivityIndicator.stopAnimating()
+//        }
     }
     
     

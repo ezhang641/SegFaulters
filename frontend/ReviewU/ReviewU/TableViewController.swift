@@ -193,6 +193,23 @@ class TableViewController: UITableViewController, UITextFieldDelegate, UITextVie
     
     //NEED to connect with backend to test this. This function isn't being called at all right now, and I think it's because the productStore doesn't work properly when just dummy data. recentSearches list is empty because this isnt being called.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let tabbar = tabBarController as! TabView
+//        ProductStore.shared.getContent({ success in
+//           DispatchQueue.main.async {
+//               if success {
+//                   print("HERE")
+//                   let product = ProductStore.shared.products[0]
+//                   tabbar.productName = product.name
+//                   tabbar.sentiment = self.emotionMap[product.sentiment!]
+//                   tabbar.summary = product.summary
+//                   tabbar.productImg = product.image!
+//                   tabbar.pros = product.pros
+//                   tabbar.cons = product.cons
+//                   print("IMG URL:")
+////                   print(self.productImg)
+//               }
+//           }
+//       }, asin: asin)
         guard segue.identifier == "showDetailedViewSegue",
               let indexPath = tableView.indexPathForSelectedRow,
               let summaryViewController = segue.destination as? TabView

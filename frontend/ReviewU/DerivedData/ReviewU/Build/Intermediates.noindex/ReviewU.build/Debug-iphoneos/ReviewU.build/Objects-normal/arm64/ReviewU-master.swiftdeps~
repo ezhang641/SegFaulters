@@ -1,0 +1,14 @@
+version: "Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)"
+options: "2c895cf7258331bd78fcb26112e3e3b47c59692778e8fa36b0244e3429dcf56d"
+build_start_time: [1637003760, 646258831]
+build_end_time: [1637003772, 746849060]
+inputs:
+  "/Users/spencersemple/Desktop/eecs441/SegFaulters/frontend/ReviewU/ReviewU/AppDelegate.swift": [1635784471, 51062583]
+  "/Users/spencersemple/Desktop/eecs441/SegFaulters/frontend/ReviewU/ReviewU/DetailedView.swift": [1635784471, 53133010]
+  "/Users/spencersemple/Desktop/eecs441/SegFaulters/frontend/ReviewU/ReviewU/Product.swift": [1635784471, 53480148]
+  "/Users/spencersemple/Desktop/eecs441/SegFaulters/frontend/ReviewU/ReviewU/ProductStore.swift": [1636940229, 853632688]
+  "/Users/spencersemple/Desktop/eecs441/SegFaulters/frontend/ReviewU/ReviewU/RecentSearches.swift": [1636944084, 323925018]
+  "/Users/spencersemple/Desktop/eecs441/SegFaulters/frontend/ReviewU/ReviewU/SceneDelegate.swift": [1635784471, 53955078]
+  "/Users/spencersemple/Desktop/eecs441/SegFaulters/frontend/ReviewU/ReviewU/TabBarController.swift": [1636944310, 177359104]
+  "/Users/spencersemple/Desktop/eecs441/SegFaulters/frontend/ReviewU/ReviewU/TableCell.swift": [1635784471, 54203987]
+  "/Users/spencersemple/Desktop/eecs441/SegFaulters/frontend/ReviewU/ReviewU/TableViewController.swift": [1636944918, 304864645]
