@@ -88,6 +88,9 @@ def getProductNames(search):
 
         soup = BeautifulSoup(response.content, "html.parser")
         productNames[soup.find("span", {'id': "productTitle"}).text.strip()] = data_asin[i]
+        image = soup.find('img', {'data-a-image-name': 'landingImage'}, src=True)
+        img_num = 'image' + str(i)
+        productNames[img_num] = image['src']
 
     return productNames
 
@@ -105,13 +108,8 @@ def getProductContent(data_asin):
     productList = {}
 
     # find product image
-    image = soup.find_all('img', {'data-a-image-name': 'landingImage'}, src=True)
-    image_src = [x['src'] for x in image]
-    image_src = [x for x in image_src if x.endswith('.jpg')]
-    if len(image_src) == 0:
-        productList['image'] = 'no image'
-    else:
-        productList['image'] = image_src[0]
+    image = soup.find('img', {'data-a-image-name': 'landingImage'}, src=True)
+    productList['image'] = image['src']
 
     # Range dictates number of review pages
     for k in range(1):
