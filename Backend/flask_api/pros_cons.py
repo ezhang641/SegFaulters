@@ -7,8 +7,8 @@ import ssl
 # append the path of the
 # parent directory
 [sys.path.append(i) for i in ['.', '..']]
-from Backend.flask_api.summarize_text import *
-from Backend.flask_api.abstractive_summary import summarize
+from summarize_text import *
+from abstractive_summary import summarize
 
 try:
     _create_unverified_https_context = ssl._create_unverified_context
