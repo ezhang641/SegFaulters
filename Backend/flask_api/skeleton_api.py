@@ -27,10 +27,12 @@ app = Flask(__name__)
 def index():
     return "Index"
 
+
 ### PRODUCT ROUTES ###
 @app.route("/product/information", methods=["GET"])
 def get_product_information():
     pass
+
 
 ### AMAZON ROUTES ###
 @app.route("/amazon/information", methods=["POST"])
@@ -40,11 +42,11 @@ def get_amazon_product_content():
         content = getProductContent(request.json["product_asin"])
         sentiments = []
         emotion_dict = {
-            "Happy" : 0.0,
-            "Angry" : 0.0,
-            "Surprise" : 0.0,
-            "Sad" : 0.0,
-            "Fear" : 0.0
+            "Happy": 0.0,
+            "Angry": 0.0,
+            "Surprise": 0.0,
+            "Sad": 0.0,
+            "Fear": 0.0
         }
         total_summary = ""
         reviews_list = []
@@ -85,5 +87,6 @@ def get_amazon_names():
     else:
         return "Cant find form"
 
+
 if __name__ == '__main__':
-   app.run()
+    app.run()
