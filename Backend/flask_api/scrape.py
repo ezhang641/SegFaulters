@@ -6,6 +6,8 @@ from bs4 import BeautifulSoup
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import os
+import time
+import psycopg2
 from selenium.webdriver.chrome.service import Service
 
 header = {
@@ -19,26 +21,29 @@ cookie = {
 }
 
 
-#options = webdriver.ChromeOptions()
-#options.add_argument('--incognito')
-#options.add_argument('--headless')
+options = webdriver.ChromeOptions()
+options.add_argument('--incognito')
+options.add_argument('--headless')
 #options.add_argument('--disable-extensions')
 #options.add_argument('start-maximized')
 #options.add_argument('disable-infobars')
-#options.add_argument('user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36')
-#ser = Service('/home/ubuntu/SegFaulters/Backend/flask_api/chromedriver')
-#browse = webdriver.Chrome(service=ser, options=options)
+options.add_argument('user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36')
+ser = Service('/home/ubuntu/SegFaulters/Backend/flask_api/chromedriver')
+browse = webdriver.Chrome(service=ser, options=options)
 
 def getAmazonSearch(search_query):
     url = "https://www.amazon.com/s?k=" + search_query
     print(url)
     #page = requests.get(url, headers=header, cookies=cookie)
-    page = requests.get('http://localhost:8050/render.html', params={'url':url, 'wait': 2})
-    #browse.get(url)
+    #time.sleep(2)
+    #page = requests.get('http://localhost:8050/render.html', params={'url':url, 'wait': 2})
+    #print(page.text)
+    browse.get(url)
+    time.sleep(2)
     print("Got web page")
     #print(page)
     #print(page.text)
-    #page = browse.page_source
+    page = browse.page_source
     if page != '':
         return page
     print("Error with request")
@@ -49,8 +54,9 @@ def searchAsin(asin):
     url = "https://www.amazon.com/dp/" + asin
     print(url)
     #page = requests.get(url, headers=header, cookies=cookie)
-    page = requests.get('http://localhost:8050/render.html', params={'url':url, 'wait': 2})
-    #browse.get(url)
+    #page = requests.get('http://localhost:8050/render.html', params={'url':url, 'wait': 2})
+    browse.get(url)
+    time.sleep(2)
     #with open("cookie_file", "wb") as filehandler:
        # pickle.dump(browse.get_cookies(), filehandler)
 
@@ -59,7 +65,7 @@ def searchAsin(asin):
     #for i in cookies:
        # browse.add_cookie(i)
        # print('here')
-    #page = browse.page_source
+    page = browse.page_source
     if page != '':
         return page
     print("Error with request")
@@ -70,8 +76,10 @@ def searchReviews(review_link):
     url = "https://www.amazon.com" + review_link
     print(url)
     #page = requests.get(url, headers=header, cookies=cookie)
-    page = requests.get('http://localhost:8050/render.html', params={'url':url, 'wait': 2})#browse.get(url)
-    #page = browse.page_source
+    #page = requests.get('http://localhost:8050/render.html', params={'url':url, 'wait': 2})
+    browse.get(url)
+    time.sleep(2)
+    page = browse.page_source
     # print(page)
     print("Got reviews html page")
     if page != '':
@@ -84,7 +92,7 @@ def getProductNames(search):
     data_asin = []
     response = getAmazonSearch(search)
     #print(response)
-    soup = BeautifulSoup(response.text, "html.parser")
+    soup = BeautifulSoup(response, "html.parser")
 
     # Finds all products related to the search query
     for i in soup.findAll("div", {
@@ -99,18 +107,24 @@ def getProductNames(search):
     print("data_asin")
     print(data_asin)
     productNames = {}
+    productNames["productNames"] = []
+    productNames["productAsin"] = []
     for i in range(len(data_asin)):
         if i > 2:
             break
+        time.sleep(2)
         response = searchAsin(data_asin[i])
         print("got response")
+        #print(response.text)
         # print(response.content)
-        soup = BeautifulSoup(response.text, "html.parser")
-        productNames[soup.find("span", {'id': "productTitle"}).text.strip()] = data_asin[i]
+        soup = BeautifulSoup(response, "html.parser")
+        #productNames[soup.find("span", {'id': "productTitle"}).text.strip()] = data_asin[i]
+        productNames["productNames"].append(soup.find("span", {'id': "productTitle"}).text.strip())
+        productNames["productAsin"].append(data_asin[i])
         
-        image = soup.find('img', {'data-a-image-name': 'landingImage'}, src=True)
-        img_num = 'image' + str(i)
-        productNames[img_num] = image['src']
+        #image = soup.find('img', {'data-a-image-name': 'landingImage'}, src=True)
+        #img_num = 'image' + str(i)
+        #productNames[img_num] = image['src']
 
     return productNames
 
@@ -118,7 +132,7 @@ def getProductNames(search):
 def getProductContent(data_asin):
     # Get to review page
     response = searchAsin(data_asin)
-    soup = BeautifulSoup(response.content, "html.parser")
+    soup = BeautifulSoup(response, "html.parser")
     j = soup.find("a", {'data-hook': "see-all-reviews-link-foot"})
     link = j['href']
 
@@ -139,7 +153,7 @@ def getProductContent(data_asin):
     # Range dictates number of review pages
     for k in range(1):
         response = searchReviews(link + '&pageNumber=' + str(k))
-        soup = BeautifulSoup(response.content, "html.parser")
+        soup = BeautifulSoup(response, "html.parser")
 
         # find product name
         productName = soup.find("a", {'data-hook': "product-link"}).text
@@ -172,13 +186,9 @@ def separateReviews(reviews):
 
 
 def main():
-    search = 'airpods'
-    productName = getProductNames(search)
-    print(productName)
-
-    asin = 'B07PXGQC1Q'
-    productList = getProductContent(asin)
-    print(productList)
+    
+    #productList = getProductContent(asin)
+    #print(productList)
 
 
 if __name__ == "__main__":
