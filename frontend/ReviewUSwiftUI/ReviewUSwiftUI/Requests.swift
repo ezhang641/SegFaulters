@@ -35,6 +35,8 @@ class Requests: ObservableObject {
     @Published var searchLoading = false
     @Published var productLoading = false
     @Published var recents : [[String]] = []
+    @Published var reviewProductAsin : String = ""
+    @Published var isReview = false
 
     func getResults(query: String) {
         guard let url = URL(string: "https://3.138.111.153/amazon/getnames") else { fatalError("Missing URL") }

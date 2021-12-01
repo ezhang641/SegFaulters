@@ -29,13 +29,14 @@ struct ProductView: View {
                 HStack {
                     Text(requests.name)
                         .font(.system(size: 25)).bold()
+                        .padding(.leading, 15)
                     if (requests.image != "") {
                         let url = URL(string: requests.image)!
                         if let data = try? Data(contentsOf: url) {
                             Image(uiImage: UIImage(data: data)!)
                                 .resizable()
-                                .frame(width: 150, height: 150, alignment: .trailing)
                                 .scaledToFit()
+                                .frame(width: 150, height: 150, alignment: .trailing)
                             }
                     }
                 }
@@ -71,7 +72,12 @@ struct ProductView: View {
             }
         }.onAppear {
             requests.productLoading = true
-            requests.getProductInfo(asin: requests.productAsin[self.selectedIndex])
+            if (requests.isReview) {
+                requests.getProductInfo(asin: requests.reviewProductAsin)
+            }
+            else {
+                requests.getProductInfo(asin: requests.productAsin[self.selectedIndex])
+            }
         }
     }
 }
