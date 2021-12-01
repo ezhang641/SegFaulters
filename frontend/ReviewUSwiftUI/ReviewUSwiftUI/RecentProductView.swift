@@ -42,7 +42,7 @@ struct RecentProductView: View {
                     }
                 }
                 HStack {
-                    Text("Sentiment")
+                    Text("Sentiment:")
                         .font(.system(size: 25)).bold()
                     if (requests.sentiment != "") {
                         Text(emotionMap[requests.sentiment]!)
@@ -76,7 +76,7 @@ struct RecentProductView: View {
             requests.getProductInfo(asin: self.asin)
         }.onDisappear {
             self.presentationMode.wrappedValue.dismiss()
-        }
+        }.navigationBarTitle("Product Info", displayMode: .inline)
     }
 }
 
