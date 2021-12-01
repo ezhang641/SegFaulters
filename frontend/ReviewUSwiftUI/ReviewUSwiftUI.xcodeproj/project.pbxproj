@@ -18,6 +18,7 @@
 		45D072E7275690B20083885D /* ProsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D072E6275690B10083885D /* ProsView.swift */; };
 		45D072E9275690BC0083885D /* ConsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D072E8275690BC0083885D /* ConsView.swift */; };
 		45D072EB275692E20083885D /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D072EA275692E20083885D /* Requests.swift */; };
+		45D072F127575CB00083885D /* RecentProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D072F027575CB00083885D /* RecentProductView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		45D072E6275690B10083885D /* ProsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProsView.swift; sourceTree = "<group>"; };
 		45D072E8275690BC0083885D /* ConsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsView.swift; sourceTree = "<group>"; };
 		45D072EA275692E20083885D /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
+		45D072F027575CB00083885D /* RecentProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentProductView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				45D072E6275690B10083885D /* ProsView.swift */,
 				45D072E8275690BC0083885D /* ConsView.swift */,
 				45D072EA275692E20083885D /* Requests.swift */,
+				45D072F027575CB00083885D /* RecentProductView.swift */,
 			);
 			path = ReviewUSwiftUI;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 				45D072E7275690B20083885D /* ProsView.swift in Sources */,
 				45D072EB275692E20083885D /* Requests.swift in Sources */,
 				45D072DF27568CB10083885D /* Search.swift in Sources */,
+				45D072F127575CB00083885D /* RecentProductView.swift in Sources */,
 				45D072D3275689DC0083885D /* ContentView.swift in Sources */,
 				45D072D1275689DC0083885D /* ReviewUSwiftUIApp.swift in Sources */,
 				45D072E5275690A50083885D /* SummaryView.swift in Sources */,

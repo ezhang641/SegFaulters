@@ -36,7 +36,6 @@ class Requests: ObservableObject {
     @Published var productLoading = false
     @Published var recents : [[String]] = []
     @Published var reviewProductAsin : String = ""
-    @Published var isReview = false
 
     func getResults(query: String) {
         guard let url = URL(string: "https://3.138.111.153/amazon/getnames") else { fatalError("Missing URL") }
@@ -106,7 +105,9 @@ class Requests: ObservableObject {
                         self.sentiment = responseData.sentiment
                         self.productLoading = false
                         let recentArr = [responseData.name, asin]
-                        self.recents.append(recentArr)
+                        if (!self.recents.contains(recentArr)) {
+                            self.recents.append(recentArr)
+                        }
                     } catch let error {
                         print("Error decoding: ", error)
                     }

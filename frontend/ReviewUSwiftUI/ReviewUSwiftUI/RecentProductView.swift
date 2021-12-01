@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct ProductView: View {
+struct RecentProductView: View {
     @State private var tabSelection = 1
-    @Binding var selectedIndex : Int
+    @Binding var asin : String
     @EnvironmentObject var requests: Requests
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     let emotionMap: [String: String] = [
@@ -73,22 +73,16 @@ struct ProductView: View {
             }
         }.onAppear {
             requests.productLoading = true
-            requests.getProductInfo(asin: requests.productAsin[self.selectedIndex])
-//            if (requests.isReview) {
-//                requests.getProductInfo(asin: requests.reviewProductAsin)
-//            }
-//            else {
-//                requests.getProductInfo(asin: requests.productAsin[self.selectedIndex])
-//            }
+            requests.getProductInfo(asin: self.asin)
         }.onDisappear {
             self.presentationMode.wrappedValue.dismiss()
         }
     }
 }
 
-struct ProductView_Previews: PreviewProvider {
-    @State static var selectedIndex = 0
+struct RecentProductView_Previews: PreviewProvider {
+    @State static var asin = ""
     static var previews: some View {
-        ProductView(selectedIndex: $selectedIndex)
+        RecentProductView(asin: $asin)
     }
 }

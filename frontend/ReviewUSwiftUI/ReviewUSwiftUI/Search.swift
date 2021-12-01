@@ -220,8 +220,6 @@ struct Search: View {
                 ActivityIndicator(isAnimating: .constant(true), style: .large)
             }
             Spacer()
-        }.onAppear {
-            requests.isReview = false
         }
     }
 }

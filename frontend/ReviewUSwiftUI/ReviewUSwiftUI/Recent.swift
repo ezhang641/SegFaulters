@@ -16,16 +16,12 @@ struct Recent: View {
                 .font(.system(size: 25)).bold()
             List {
                 ForEach(requests.recents, id:\.self) {product in
-                    NavigationLink(destination: ProductView(selectedIndex: $num0)) {
+                    NavigationLink(destination: RecentProductView(asin: $requests.recents[requests.recents.firstIndex(of: product)!][1])) {
                         Text(product[0])
-                    }.onTapGesture {
-                        requests.reviewProductAsin = product[1]
                     }
                 }
             }
             Spacer()
-        }.onAppear {
-            requests.isReview = true
         }
     }
 }
