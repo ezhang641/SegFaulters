@@ -34,9 +34,10 @@ class Requests: ObservableObject {
     @Published var sentiment : String = ""
     @Published var searchLoading = false
     @Published var productLoading = false
+    @Published var recents : [[String]] = []
 
     func getResults(query: String) {
-        guard let url = URL(string: "https://3d6e-50-237-234-7.ngrok.io/amazon/getnames") else { fatalError("Missing URL") }
+        guard let url = URL(string: "https://3.138.111.153/amazon/getnames") else { fatalError("Missing URL") }
 
         var urlRequest = URLRequest(url: url)
         let json: [String: Any] = ["name": query]
@@ -71,7 +72,7 @@ class Requests: ObservableObject {
     }
     
     func getProductInfo(asin: String) {
-        guard let url = URL(string: "https://3d6e-50-237-234-7.ngrok.io/amazon/information") else { fatalError("Missing URL") }
+        guard let url = URL(string: "https://3.138.111.153/amazon/information") else { fatalError("Missing URL") }
 
         var urlRequest = URLRequest(url: url)
         let json: [String: Any] = ["product_asin": asin]
@@ -102,6 +103,8 @@ class Requests: ObservableObject {
                         self.summary = responseData.summary
                         self.sentiment = responseData.sentiment
                         self.productLoading = false
+                        let recentArr = [responseData.name, asin]
+                        self.recents.append(recentArr)
                     } catch let error {
                         print("Error decoding: ", error)
                     }

@@ -8,8 +8,23 @@
 import SwiftUI
 
 struct Recent: View {
+    @EnvironmentObject var requests: Requests
+    @State var num0 = 0
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+//            Text("Recent Searches:")
+//                .font(.system(size: 25)).bold()
+//            List {
+//                ForEach(requests.recents, id:\.self) {product in
+//                    NavigationLink(destination: ProductView(selectedIndex: $num0)) {
+//                        Text(product[0])
+//                    }.onTapGesture {
+//                        requests.productAsin = [product[1]]
+//                    }
+//                }
+//            }
+//            Spacer()
+        }
     }
 }
 
