@@ -5,3 +5,5 @@ Backend/bin/
 Backend/pyvenv.cfg
 Backend/Scraped_Data.csv
 Backend/flask_api/__pycache__
+Backend/flask_api/env
+Backend/share
