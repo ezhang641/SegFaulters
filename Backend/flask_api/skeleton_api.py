@@ -39,11 +39,11 @@ def get_amazon_product_content():
             connection = psycopg2.connect(user="aroon", password="aroonsmells", host="127.0.0.1", port="5432", database="review")
             cursor = connection.cursor()
      
-            cursor.execute("SELECT info FROM products WHERE id=%s", request.json["product_asin"])
+            cursor.execute("SELECT info FROM products WHERE id=%s", (request.json["product_asin"],))
 
             result = cursor.fetchone()
-
-	    if len(result) == 0:
+        
+            if result == None:
                 ret = {}
                 content = getProductContent(request.json["product_asin"])
                 sentiments = []
@@ -79,9 +79,11 @@ def get_amazon_product_content():
                 ret["cons"] = "*".join(cons)
                 #ret["review1"] = content[ret["name"]][0]
                 #ret["review2"] = content[ret["name"]][1]
-                sql = """ INSERT INTO products(id, info)
-                          VALUES(%s, %s);"""
-                cursor.execute(sql, (json.requests['product_asin'], json.dumps(ret),))
+
+                #connection = psycopg2.connect(user="aroon", password="aroonsmells", host="127.0.0.1", port="5432", database="review")
+                #cursor = connection.cursor()
+                sql = """ INSERT INTO products(id, info) VALUES(%s, %s);"""
+                cursor.execute(sql, (request.json['product_asin'], json.dumps(ret),))
                 connection.commit()          
                 return jsonify(**ret)
 
@@ -104,4 +106,4 @@ def get_amazon_names():
         return "Cant find form"
 
 if __name__ == '__main__':
-   app.run()
+    app.run()

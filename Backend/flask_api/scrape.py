@@ -186,9 +186,18 @@ def separateReviews(reviews):
 
 
 def main():
-    
-    #productList = getProductContent(asin)
-    #print(productList)
+    #connection = psycopg2.connect(user="aroon", password="aroonsmells", host="127.0.0.1", port="5432", database="review")
+    #cursor = connection.cursor()
+
+    #cursor.execute("SELECT info FROM products WHERE id=%s", request.json["product_asin"])
+
+    #result = cursor.fetchone()
+
+    #if result == None:
+     #   print("here")
+    asin = "B07HYX9P88"
+    productList = getProductContent(asin)
+    print(productList)
 
 
 if __name__ == "__main__":
