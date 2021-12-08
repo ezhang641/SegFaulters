@@ -7,7 +7,7 @@
 ![Elevator Pitch](/assets/title.png)
 ![Team](/assets/team.png)
 
-[demo_page]: https://youtu.be/sample
+[demo_page]: https://www.youtube.com/watch?v=8V0pCEdzVaw
 [wiki_page]: https://github.com/ezhang641/SegFaulters/wiki
-[process_page]: https://trello.com/b/sample/general
+[process_page]: https://trello.com/b/adAd4y2o/segfaulters
 
