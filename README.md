@@ -4,8 +4,8 @@
 |:-----:|:-----:|:--------:|
 |[<img src="https://eecs441.eecs.umich.edu/img/admin/video.png">][demo_page]|[<img src="https://eecs441.eecs.umich.edu/img/admin/wiki.png">][wiki_page]|[<img src="https://eecs441.eecs.umich.edu/img/admin/trello.png">][process_page]|
 
-![Elevator Pitch](/assets/title.png)
-![Team](/assets/team.png)
+![Elevator Pitch](https://github.com/ezhang641/SegFaulters/blob/main/wiki/assets/Screen%20Shot%202021-12-08%20at%2011.36.25%20AM.png)
+![Team](https://github.com/ezhang641/SegFaulters/blob/main/wiki/assets/Screen%20Shot%202021-12-08%20at%2011.37.24%20AM.png)
 
 [demo_page]: https://www.youtube.com/watch?v=8V0pCEdzVaw
 [wiki_page]: https://github.com/ezhang641/SegFaulters/wiki
